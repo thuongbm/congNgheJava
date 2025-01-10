@@ -1,4 +1,4 @@
-package baitapjava;
+package baitapjava.truoc;
 
 import java.util.Scanner;
 
