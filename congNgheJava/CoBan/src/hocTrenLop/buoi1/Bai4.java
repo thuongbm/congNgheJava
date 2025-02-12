@@ -6,7 +6,7 @@ public class Bai4 {
         int S = 0;
 
         for (int x : a){
-            if (x % 3 == 0) S += i;
+            if (x % 3 == 0) S += x;
         }
 
         System.out.println(S);
