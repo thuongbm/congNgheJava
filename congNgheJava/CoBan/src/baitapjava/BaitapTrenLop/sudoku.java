@@ -1,20 +1,13 @@
 package baitapjava.BaitapTrenLop;
-
 import java.util.Scanner;
+import java.util.*;
 
 public class sudoku {
     public static void main(String[] args) {
-        int[][] board = {
-                {3, 0, 2, 0, 8, 0, 1, 0, 5},
-                {0, 0, 7, 2, 0, 0, 0, 6, 0},
-                {5, 0, 8, 9, 0, 0, 0, 4, 7},
-                {0, 8, 0, 4, 0, 0, 3, 0, 2},
-                {0, 3, 0, 1, 6, 0, 0, 5, 8},
-                {0, 1, 0, 5, 0, 0, 6, 7, 0},
-                {0, 2, 0, 3, 4, 5, 0, 0, 1},
-                {0, 0, 0, 0, 2, 6, 0, 0, 9},
-                {0, 0, 0, 0, 9, 0, 5, 2, 6}
-        };
+        int[][] board = new int[9][9];
+        GenerateBoard(board);
+        RemoveCells(board, 40); // Xóa 40 ô để tạo thử thách
+
         System.out.println("Sudoku ban dau:");
         PrintBoard(board);
 
@@ -24,20 +17,78 @@ public class sudoku {
         PrintBoard(board);
     }
 
-    public static void Input(int[][] board) {
-        Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (board[i][j] == 0) {
-                    int value;
-                    do {
-                        System.out.print("Nhap gia tri hop le (1-9) cho o [" + i + "][" + j + "]: ");
-                        value = sc.nextInt();
-                    } while (value < 1 || value > 9 || !IsValid(board, i, j, value));
-                    board[i][j] = value;
+    public static boolean GenerateBoard(int[][] board) {
+        return SolveBoard(board);
+    }
+    public static boolean SolveBoard(int[][] board) {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (board[row][col] == 0) {
+                    List<Integer> numbers = new ArrayList<>();
+                    for (int i = 1; i <= 9; i++) numbers.add(i);
+                    Collections.shuffle(numbers); // Ngẫu nhiên hóa số điền vào ô
+
+                    for (int num : numbers) {
+                        if (IsValid(board, row, col, num)) {
+                            board[row][col] = num;
+                            if (SolveBoard(board)) {
+                                return true;
+                            }
+                            board[row][col] = 0;
+                        }
+                    }
+                    return false;
                 }
             }
         }
+        return true;
+    }
+
+    public static void RemoveCells(int[][] board, int count) {
+        Random rand = new Random();
+        for (int i = 0; i < count; i++) {
+            int row, col;
+            do {
+                row = rand.nextInt(9);
+                col = rand.nextInt(9);
+            } while (board[row][col] == 0);
+            board[row][col] = 0;
+        }
+    }
+
+    public static void Input(int[][] board) {
+        Scanner sc = new Scanner(System.in);
+        while (!CheckBoard(board)) {
+            System.out.print("Nhap toa do x (0-8): ");
+            int x = sc.nextInt();
+            System.out.print("Nhap toa do y (0-8): ");
+            int y = sc.nextInt();
+
+            if (x < 0 || x >= 9 || y < 0 || y >= 9) {
+                System.out.println("Toa do khong hop le. Vui long nhap lai.");
+                continue;
+            }
+
+            if (board[x][y] == 0) {
+                int value;
+                do {
+                    System.out.print("Nhap gia tri hop le (1-9) cho o [" + x + "][" + y + "]: ");
+                    value = sc.nextInt();
+                } while (value < 1 || value > 9 || !IsValid(board, x, y, value));
+                board[x][y] = value;
+            } else {
+                System.out.println("O nay da co gia tri khac 0. Vui long chon o khac.");
+            }
+        }
+    }
+
+    public static boolean CheckBoard(int[][] board) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == 0) return false;
+            }
+        }
+        return true;
     }
 
     public static Boolean IsNumberInRow(int[][] board, int row, int value) {
@@ -81,7 +132,10 @@ public class sudoku {
                 if (j % 3 == 0 && j != 0) {
                     System.out.print("| ");
                 }
-                System.out.print(board[i][j] + " ");
+                if (board[i][j] == 0){
+                    System.out.print("_ ");
+                }
+                else System.out.print(board[i][j] + " ");
             }
             System.out.println();
         }
