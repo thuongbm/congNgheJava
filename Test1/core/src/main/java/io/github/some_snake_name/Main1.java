@@ -58,10 +58,8 @@ public class Main1 extends ApplicationAdapter {
         shapeRenderer.end(); // ket thuc ve
     }
     private void input() {
-        float deltaTime = Gdx.graphics.getDeltaTime(); // Lấy thời gian giữa các frame
-
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            dirX = 1; // sang phair
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && dirX == 0) {
+            dirX = 1;
             dirY = 0;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
