@@ -43,8 +43,8 @@ public class Main1 extends ApplicationAdapter {
 
         // Lấy kích thước bản đồ
         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
-        int mapWidth = layer.getWidth() * 32; // lay rong
-        int mapHeight = layer.getHeight() * 32; // lay chieu cao
+        int mapWidth = layer.getWidth() * 20; // lay rong
+        int mapHeight = layer.getHeight() * 20; // lay chieu cao
 
         // Khởi tạo camera và viewport
         camera = new OrthographicCamera();
@@ -54,6 +54,8 @@ public class Main1 extends ApplicationAdapter {
 
         // Tạo renderer
         mapRenderer = new OrthogonalTiledMapRenderer(map);
+
+
     }
 
     @Override
@@ -73,12 +75,12 @@ public class Main1 extends ApplicationAdapter {
         posX += dirX * speed * Gdx.graphics.getDeltaTime();
         posY += dirY * speed * Gdx.graphics.getDeltaTime();
 
-        // vẽ hình vuông lên bản đồ
-        shapeRenderer.setProjectionMatrix(camera.combined);
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.RED);
-        shapeRenderer.rect(posX, posY, 10, 10);
-        shapeRenderer.end();
+//        // vẽ hình vuông lên bản đồ
+//        shapeRenderer.setProjectionMatrix(camera.combined);
+//        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+//        shapeRenderer.setColor(Color.RED);
+//        shapeRenderer.rect(posX, posY, 10, 10);
+//        shapeRenderer.end();
     }
 
     private void input() {
