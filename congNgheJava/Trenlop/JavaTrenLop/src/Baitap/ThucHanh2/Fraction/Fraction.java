@@ -103,9 +103,14 @@ public class Fraction {
     }
 
     public int compareTo(Fraction fraction) {
-        int lhs = this.numeRator * fraction.denoMinator;
-        int rhs = fraction.numeRator * this.denoMinator;
-        return Integer.compare(lhs, rhs);
+        this.commonDenominator(fraction);
+
+        if (this.numeRator > fraction.numeRator){
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 
     public boolean isInteger() {

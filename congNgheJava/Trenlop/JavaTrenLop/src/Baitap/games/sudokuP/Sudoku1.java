@@ -1,36 +1,13 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
+package Baitap.games.sudokuP;
 
-package Baitap.games;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
-
-public class sudoku {
-    public sudoku() {
-    }
-
-    public static void main(String[] args) {
-        int[][] board = new int[9][9];
-        GenerateBoard(board);
-        RemoveCells(board, 40);
-        System.out.println("Sudoku ban dau:");
-        PrintBoard(board);
-        Input(board);
-        System.out.println("Sudoku sau khi nhap:");
-        PrintBoard(board);
-    }
-
-    public static boolean GenerateBoard(int[][] board) {
+public class Sudoku1 implements Isudoku {
+    public boolean GenerateBoard(int[][] board) {
         return SolveBoard(board);
     }
 
-    public static boolean SolveBoard(int[][] board) {
+    public boolean SolveBoard(int[][] board) {
         for(int row = 0; row < 9; ++row) {
             for(int col = 0; col < 9; ++col) {
                 if (board[row][col] == 0) {
@@ -61,7 +38,7 @@ public class sudoku {
         return true;
     }
 
-    public static void RemoveCells(int[][] board, int count) {
+    public void RemoveCells(int[][] board, int count) {
         Random rand = new Random();
 
         for(int i = 0; i < count; ++i) {
@@ -77,7 +54,7 @@ public class sudoku {
 
     }
 
-    public static void Input(int[][] board) {
+    public void Input(int[][] board) {
         Scanner sc = new Scanner(System.in);
 
         while(!CheckBoard(board)) {
@@ -104,7 +81,7 @@ public class sudoku {
 
     }
 
-    public static boolean CheckBoard(int[][] board) {
+    public boolean CheckBoard(int[][] board) {
         for(int i = 0; i < 9; ++i) {
             for(int j = 0; j < 9; ++j) {
                 if (board[i][j] == 0) {
@@ -116,7 +93,7 @@ public class sudoku {
         return true;
     }
 
-    public static Boolean IsNumberInRow(int[][] board, int row, int value) {
+    public Boolean IsNumberInRow(int[][] board, int row, int value) {
         for(int i = 0; i < 9; ++i) {
             if (board[row][i] == value) {
                 return true;
@@ -126,7 +103,7 @@ public class sudoku {
         return false;
     }
 
-    public static Boolean IsNumberInCol(int[][] board, int col, int value) {
+    public Boolean IsNumberInCol(int[][] board, int col, int value) {
         for(int i = 0; i < 9; ++i) {
             if (board[i][col] == value) {
                 return true;
@@ -136,7 +113,7 @@ public class sudoku {
         return false;
     }
 
-    public static Boolean IsNumberInSquare(int[][] board, int row, int col, int value) {
+    public Boolean IsNumberInSquare(int[][] board, int row, int col, int value) {
         int StartRow = row - row % 3;
         int StartCol = col - col % 3;
 
@@ -151,11 +128,11 @@ public class sudoku {
         return false;
     }
 
-    public static Boolean IsValid(int[][] board, int row, int col, int value) {
+    public Boolean IsValid(int[][] board, int row, int col, int value) {
         return !IsNumberInRow(board, row, value) && !IsNumberInCol(board, col, value) && !IsNumberInSquare(board, row, col, value);
     }
 
-    public static void PrintBoard(int[][] board) {
+    public void PrintBoard(int[][] board) {
         for(int i = 0; i < 9; ++i) {
             if (i % 3 == 0 && i != 0) {
                 System.out.println("---------------------");
