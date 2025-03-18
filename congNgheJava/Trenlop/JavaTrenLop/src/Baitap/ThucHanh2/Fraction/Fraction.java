@@ -1,6 +1,6 @@
 package Baitap.ThucHanh2.Fraction;
 
-public class Fraction {
+public class Fraction implements IFraction{
     private int numeRator;
     private int denoMinator;
 
@@ -34,7 +34,6 @@ public class Fraction {
         this.denoMinator = denoMinator;
     }
 
-    @Override
     public String toString() {
         return "Fraction{" + "numeRator=" + numeRator + ", DenoMinator=" + denoMinator + '}';
     }

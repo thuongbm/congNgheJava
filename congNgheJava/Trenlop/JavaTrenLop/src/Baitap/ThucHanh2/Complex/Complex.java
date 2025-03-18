@@ -1,6 +1,6 @@
 package Baitap.ThucHanh2.Complex;
 
-public class Complex {
+public class Complex implements IComplex{
     private double real;
     private double imaginary;
 
@@ -42,4 +42,10 @@ public class Complex {
     public Complex sum(Complex complex){
         return new Complex(this.getReal() + complex.getReal(), this.getImaginary() + complex.getImaginary());
     }
+
+    public double module(){
+        return Math.sqrt(this.getReal() * this.getReal() + this.getImaginary() * this.getImaginary());
+    }
+
+
 }
