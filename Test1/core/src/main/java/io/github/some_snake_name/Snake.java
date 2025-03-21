@@ -14,6 +14,8 @@ public class Snake {
     private float moveTimer = 0f;
     private final float MOVE_INTERVAL = 0.2f;
 
+    public  Snake(){}
+
     public Snake(TiledMap map, TiledMapTileLayer layer, int startX, int startY) {
         this.map = map;
         this.layer = layer;
