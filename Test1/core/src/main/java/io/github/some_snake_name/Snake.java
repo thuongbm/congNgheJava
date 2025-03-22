@@ -12,7 +12,7 @@ public class Snake {
     private TiledMap map;
     private List<int[]> snakeBody = new ArrayList<>();
     private float moveTimer = 0f;
-    private final float MOVE_INTERVAL = 0.2f;
+    private final float MOVE_INTERVAL = 0.15f;
 
     public Snake(TiledMap map, TiledMapTileLayer layer, int startX, int startY) {
         this.map = map;
@@ -21,7 +21,7 @@ public class Snake {
         this.posY = startY;
 
         // Thêm phần thân ban đầu
-        for (int i = 1; i <= 3; i++) { // Ban đầu rắn có 3 đốt
+        for (int i = 1; i <= 4; i++) { // Ban đầu rắn có 3 đốt
             snakeBody.add(new int[]{startX + i, startY});
         }
 
@@ -36,7 +36,7 @@ public class Snake {
         moveTimer = 0;
 
         // Xóa thân rắn cũ khỏi layer
-        clearOldPosition();
+             clearOldPosition();
 
         // Lấy vị trí hiện tại của đầu rắn
         int oldX = posX;
@@ -68,13 +68,13 @@ public class Snake {
         // Cập nhật thân rắn
         for (int[] part : snakeBody) {
             TiledMapTileLayer.Cell bodyCell = new TiledMapTileLayer.Cell();
-            bodyCell.setTile(map.getTileSets().getTile(524)); // Mã tile của thân rắn
+            bodyCell.setTile(map.getTileSets().getTile(5702)); // Mã tile của thân rắn
             layer.setCell(part[0], part[1], bodyCell);
         }
 
         // Cập nhật đầu rắn
         TiledMapTileLayer.Cell headCell = new TiledMapTileLayer.Cell();
-        headCell.setTile(map.getTileSets().getTile(522)); // Mã tile của đầu rắn
+        headCell.setTile(map.getTileSets().getTile(5698)); // Mã tile của đầu rắn
         layer.setCell(posX, posY, headCell);
     }
 

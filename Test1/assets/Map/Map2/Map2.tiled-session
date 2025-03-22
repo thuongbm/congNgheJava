@@ -1,0 +1,74 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map/Map2.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "Map",
+        "Object"
+    ],
+    "fileStates": {
+        "Map/Map2.tmx": {
+            "scale": 4,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 118,
+                "y": 91.375
+            }
+        },
+        "Object/Resize.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Object/Resnake.p8.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Object/Resnake.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Object/Snake1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Object/Snake2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "Object/snake.p8.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 2
+        },
+        "Object/snake.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 2
+        }
+    },
+    "frame.defaultDuration": 100,
+    "last.imagePath": "C:/Users/admin/Documents/hoc_tap/nam_hai/ki_2/Test1/assets/Map/Map2/Download",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "Map/Map2.tmx",
+        "Object/Resnake.tsx",
+        "Object/Resnake.p8.tsx"
+    ],
+    "project": "Map2.tiled-project",
+    "recentFiles": [
+        "Object/Resnake.p8.tsx",
+        "Object/Resnake.tsx",
+        "Map/Map2.tmx",
+        "Object/Snake2.tsx",
+        "Object/Resize.tsx",
+        "Object/snake.p8.tsx",
+        "Object/snake.tsx",
+        "Object/Snake1.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 8,
+        "width": 8
+    }
+}

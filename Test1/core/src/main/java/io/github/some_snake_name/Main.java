@@ -15,9 +15,9 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void create() {
-        mapLoader = new GameMap("Map/Map1/examples/Test/ran1.tmx");
+        mapLoader = new GameMap("Map/Map2/Map/Map2.tmx");
         snake = new Snake(mapLoader.getMap(),
-            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) mapLoader.getMap().getLayers().get("snake"),
+            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) mapLoader.getMap().getLayers().get("Hide"),
             5, 5);
         cameraController = new GameCamera(snake);
     }
@@ -51,9 +51,8 @@ public class Main extends ApplicationAdapter {
 
     public static void main(String[] args) {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-        config.setTitle("Snake");
-        config.setWindowedMode(640, 640);
-        config.setForegroundFPS(60);
+        config.setTitle("Snake Game");
+        config.setWindowedMode(640, 600);
         new Lwjgl3Application(new Main(), config);
     }
 }

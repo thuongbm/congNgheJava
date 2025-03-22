@@ -7,12 +7,12 @@ public class GameCamera {
     private OrthographicCamera camera;
     private FitViewport viewport;
     private Snake snake;
-    private final float SMOOTHING_FACTOR = 1.5f; // Giảm độ nhạy của camera
+    private final float SMOOTHING_FACTOR = 0f; // Giảm độ nhạy của camera
 
     public GameCamera(Snake snake) {
         this.snake = snake;
         camera = new OrthographicCamera();
-        viewport = new FitViewport(640, 640, camera);
+        viewport = new FitViewport(250, 250, camera);
         camera.update();
     }
 
