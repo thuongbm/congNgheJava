@@ -15,9 +15,9 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void create() {
-        mapLoader = new GameMap("Map/Map2/Map/Map2.tmx");
+        mapLoader = new GameMap("Map/Map3/Map/Map3.tmx");
         snake = new Snake(mapLoader.getMap(),
-            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) mapLoader.getMap().getLayers().get("Hide"),
+            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) mapLoader.getMap().getLayers().get("Snake and food"),
             5, 5);
         cameraController = new GameCamera(snake);
     }
