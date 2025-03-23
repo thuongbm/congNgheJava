@@ -169,4 +169,20 @@ TiengAnhB1/
 congNgheJava/JavaCoBan/
 lichSuDang/
 phanTichThuatToan/
+# Bỏ qua thư mục hệ thống và môi trường lập trình
+.idea/
+out/
+*.class
+*.jar
+*.log
+
+# Bỏ qua file tạm của hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Bỏ qua các tệp trong thư mục không cần theo dõi
+phanTichThuatToan/Thuchanh/out/
+phanTichThuatToan/Thuchanh/algs4.jar
+phanTichThuatToan/Thuchanh/stdlib.jar
+
 
