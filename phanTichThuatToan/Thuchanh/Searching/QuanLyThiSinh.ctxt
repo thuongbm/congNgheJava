@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=QuanLyThiSinh
+comment1.params=hoDem\ ten\ ngaySinh
+comment1.target=ThiSinh(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=int\ hashCode()
+comment3.params=obj
+comment3.target=boolean\ equals(java.lang.Object)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6

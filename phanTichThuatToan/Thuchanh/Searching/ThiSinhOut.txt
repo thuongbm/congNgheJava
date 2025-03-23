@@ -1,0 +1,15 @@
+Tran Van Cong (23/07/2005)
+  Hoa: 8.0
+  Ly: 9.0
+  Toan: 8.5
+
+Nguyen Van An (01/01/2005)
+  Hoa: 7.5
+  Ly: 8.5
+  Toan: 9.0
+
+Le Thi Binh (15/04/2005)
+  Hoa: 8.0
+  Ly: 6.5
+  Toan: 7.0
+

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=WeightedEdgeDigraphCycle
+comment1.params=from\ to\ weight
+comment1.target=DirectedEdge(int,\ int,\ double)
+comment2.params=
+comment2.target=int\ from()
+comment3.params=
+comment3.target=int\ to()
+comment4.params=
+comment4.target=double\ weight()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6

@@ -1,0 +1,3 @@
+Nguyen Van, An, 01/01/2005, Toan, 9.0, Ly, 8.5, Hoa, 7.5
+Le Thi, Binh, 15/04/2005, Toan, 7.0, Ly, 6.5, Hoa, 8.0
+Tran Van, Cong, 23/07/2005, Toan, 8.5, Ly, 9.0, Hoa, 8.0

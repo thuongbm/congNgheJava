@@ -1,0 +1,10 @@
+Alice (S001) - Section: 2, GPA: 3,80
+Bob (S002) - Section: 1, GPA: 3,50
+Carol (S003) - Section: 2, GPA: 3,90
+Dave (S004) - Section: 1, GPA: 3,20
+Eve (S005) - Section: 3, GPA: 3,70
+Frank (S006) - Section: 2, GPA: 3,60
+Grace (S007) - Section: 3, GPA: 3,90
+Hank (S008) - Section: 1, GPA: 3,10
+Ivy (S009) - Section: 2, GPA: 3,40
+Jack (S010) - Section: 1, GPA: 3,80

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a281e227-9eb8-455e-8bd1-24f34c2d5f94" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/.idea/libraries/sqlite_jdbc_3_48_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/.idea/libraries/sqlite_jdbc_3_48_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/CoBan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/bin/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/bin/baitapjava/BaitapTrenLop/String/Bai1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/bin/baitapjava/BaitapTrenLop/sudoku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/bin/baitapjava/JavaClass/462567941_1076492460879453_7822020892706074185_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/bin/baitapjava/JavaClass/Fraction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/BaitapTrenLop/String/Bai1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/BaitapTrenLop/sudoku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/JavaClass/462567941_1076492460879453_7822020892706074185_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/JavaClass/cau2$DiemTu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/JavaClass/cau2$Qlh.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/JavaClass/cau2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/truoc/Bài-tập-thực-hành-Tin-DC (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/truoc/cau13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/truoc/cau22.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/truoc/cau36.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/truoc/cau4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/baitapjava/truoc/cau6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/hocTrenLop/buoi1/Bai2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/hocTrenLop/buoi1/Bai3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/hocTrenLop/buoi1/Bai4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/hocTrenLop/buoi1/bai1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/out/production/CoBan/hocTrenLop/buoi1/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/sqlite-jdbc-3.48.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/BaitapTrenLop/String/Bai1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/BaitapTrenLop/String/Bai2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/BaitapTrenLop/sudoku.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/JavaClass/462567941_1076492460879453_7822020892706074185_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/JavaClass/cau2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/truoc/Bài-tập-thực-hành-Tin-DC (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/truoc/cau13.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/truoc/cau22.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/truoc/cau36.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/truoc/cau4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/baitapjava/truoc/cau6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/hocTrenLop/buoi1/Bai2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/hocTrenLop/buoi1/Bai3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/hocTrenLop/buoi1/Bai4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/hocTrenLop/buoi1/bai1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/hocTrenLop/buoi1/buoi2/BanTau.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/src/hocTrenLop/buoi1/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/CoBan/students.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/TuHocJava/Triagle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/TuHocJava/Triagle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/congNgheJava.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/BaitapTrenLop/String/Bai1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/BaitapTrenLop/String/Bai2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/BaitapTrenLop/sudoku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/JavaClass/462567941_1076492460879453_7822020892706074185_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/JavaClass/cau2$DiemTu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/JavaClass/cau2$Qlh.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/JavaClass/cau2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/truoc/Bài-tập-thực-hành-Tin-DC (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/truoc/cau13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/truoc/cau22.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/truoc/cau36.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/truoc/cau4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/baitapjava/truoc/cau6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/hocTrenLop/buoi1/Bai2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/hocTrenLop/buoi1/Bai3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/hocTrenLop/buoi1/Bai4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/hocTrenLop/buoi1/bai1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/hocTrenLop/buoi1/buoi2/BanTau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/out/production/CoBan/hocTrenLop/buoi1/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/thuHocJava/HelloWord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/thuHocJava/HelloWord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/thuHocJava/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../congNgheJava/thuHocJava/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phanTichThuatToan/Thuchanh/BagQueueStack/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/../phanTichThuatToan/Thuchanh/BagQueueStack/Divide.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/core">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Test" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2tNz7Cn252qpMWdGURVk4MMa7rM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;external.system.has.shared.sources&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a281e227-9eb8-455e-8bd1-24f34c2d5f94" name="Changes" comment="" />
+      <created>1740207152474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740207152474</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Subiect
+comment1.params=name\ numOfCredit\ semester\ score
+comment1.target=Subiect(java.lang.String,\ int,\ int,\ float)
+comment2.params=
+comment2.target=int\ getSemester()
+comment3.params=
+comment3.target=float\ getScore()
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

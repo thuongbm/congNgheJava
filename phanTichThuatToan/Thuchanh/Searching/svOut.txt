@@ -1,0 +1,8 @@
+Pham Thi D (S004) - Section: 3, GPA: 9,25
+Subjects: [Computer Science (Credits: 3, Score: 9,50), Art (Credits: 2, Score: 9,00)]
+Tran Thi B (S002) - Section: 2, GPA: 8,75
+Subjects: [Chemistry (Credits: 3, Score: 9,00), Biology (Credits: 2, Score: 8,50)]
+Nguyen Van A (S001) - Section: 1, GPA: 7,75
+Subjects: [Math (Credits: 3, Score: 8,50), Physics (Credits: 2, Score: 7,00)]
+Le Van C (S003) - Section: 1, GPA: 7,00
+Subjects: [English (Credits: 3, Score: 6,50), History (Credits: 2, Score: 7,50)]
