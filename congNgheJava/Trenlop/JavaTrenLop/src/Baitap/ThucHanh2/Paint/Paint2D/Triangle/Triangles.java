@@ -100,4 +100,13 @@ public class Triangles implements IRectangeT, IRectangeO {
         Point2D result1 = new Point2D((this.point2D.getX() * Math.cos(radians) - this.point2D.getY() * Math.sin(radians)) + G.getX(), (this.point2D.getY() * Math.sin(radians) + this.point2D.getX() * Math.cos(radians)) + G.getY());
         this.point2D = result1;
     }
+
+    public void Display(){
+        Point2D p2 = new Point2D(this.side2, 0);
+        Point2D p3 = new Point2D(this.side2 * this.side2 + this.side3 * this.side3 - this.side1 * this.side1, Math.sqrt(Math.abs(side3 * side3 - this.side2 * this.side2 + this.side3 * this.side3 - this.side1 * this.side1 * this.side2 * this.side2 + this.side3 * this.side3 - this.side1 * this.side1)));
+
+        p2.display();
+        System.out.println("\n");
+        p3.display();
+    }
 }

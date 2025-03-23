@@ -11,7 +11,8 @@ public class Divide implements Expression {
     public int interpret() {
         int rightValue = rightExpression.interpret();
         if (rightValue == 0) {
-            throw new ArithmeticException("Division by zero is not allowed.");
+//            throw new ArithmeticException("Division by zero is not allowed.");
+            return -1;
         }
         return leftExpression.interpret() / rightValue;
     }

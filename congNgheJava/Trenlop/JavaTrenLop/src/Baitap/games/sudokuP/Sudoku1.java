@@ -152,6 +152,5 @@ public class Sudoku1 implements Isudoku {
 
             System.out.println();
         }
-
     }
 }

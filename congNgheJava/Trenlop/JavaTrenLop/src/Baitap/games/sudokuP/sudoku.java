@@ -5,11 +5,13 @@
 
 package Baitap.games.sudokuP;
 
-public class sudoku extends Sudoku1 {
+import Baitap.games.sudokuP.Sudoku1;
+
+public class sudoku {
     public static void main(String[] args) {
         int[][] board = new int[9][9];
 
-        sudoku game = new sudoku(); // Tạo một đối tượng của lớp sudoku
+        Sudoku1 game = new Sudoku1(); // Tạo một đối tượng của lớp sudoku
 
         game.GenerateBoard(board);
         game.RemoveCells(board, 40);
