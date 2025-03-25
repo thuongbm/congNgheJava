@@ -1,0 +1,66 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map/Map5.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "C:/Users/admin/Documents/hoc_tap/nam_hai/ki_2/Test1/assets/Map/Map4/Map/Map4.tmx": {
+            "scale": 4.199791666666666,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 120.00595267622404,
+                "y": 79.88491492633565
+            }
+        },
+        "C:/Users/admin/Documents/hoc_tap/nam_hai/ki_2/Test1/assets/Map/Map4/Object/Snake1.tsx": {
+            "scaleInDock": 1
+        },
+        "Map/Map5.tmx": {
+            "scale": 4.199791666666666,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 120.00595267622404,
+                "y": 79.88491492633565
+            }
+        },
+        "Object/Grass.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Object/Snake1.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "Object/Snake2.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/admin/Documents/hoc_tap/nam_hai/ki_2/Test1/assets/Map/Map5/Download",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "openFiles": [
+        "Map/Map5.tmx",
+        "Object/Snake1.tsx",
+        "Object/Grass.tsx",
+        "Object/Snake2.tsx"
+    ],
+    "project": "Map5.tiled-project",
+    "recentFiles": [
+        "Object/Snake2.tsx",
+        "Object/Grass.tsx",
+        "Object/Snake1.tsx",
+        "Map/Map5.tmx",
+        "C:/Users/admin/Documents/hoc_tap/nam_hai/ki_2/Test1/assets/Map/Map4/Map/Map4.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.tileSize": {
+        "height": 8,
+        "width": 8
+    }
+}

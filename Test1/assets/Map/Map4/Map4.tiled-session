@@ -1,0 +1,41 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map/Map4.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "Map/Map4.tmx": {
+            "scale": 4.199791666666666,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 120.00595267622404,
+                "y": 79.88491492633565
+            }
+        },
+        "Object/Snake1.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/admin/Documents/hoc_tap/nam_hai/ki_2/Test1/assets/Map/Map4/Download",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "openFiles": [
+        "Map/Map4.tmx",
+        "Object/Snake1.tsx"
+    ],
+    "project": "Map4.tiled-project",
+    "recentFiles": [
+        "Object/Snake1.tsx",
+        "Map/Map4.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 8,
+        "width": 8
+    }
+}
