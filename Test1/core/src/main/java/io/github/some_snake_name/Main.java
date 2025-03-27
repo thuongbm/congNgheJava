@@ -7,6 +7,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
+import io.github.some_snake_name.controller.MenuController;
 
 public class Main extends ApplicationAdapter {
     private Snake snake;
@@ -48,6 +49,7 @@ public class Main extends ApplicationAdapter {
     public void dispose() {
         mapLoader.dispose();
     }
+
 
     public static void main(String[] args) {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();

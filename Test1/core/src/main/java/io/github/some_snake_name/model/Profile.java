@@ -1,16 +1,22 @@
 package io.github.some_snake_name.model;
 
 public class Profile {
-    public String UserName;
-    public int levelMap;
-    public int HightScore;
+    private String userName;
+    private int levelMap;
+    private int highScore;
+
+    public Profile() {
+        this.userName = "Son adu TKvip";
+        this.highScore = 100;
+        this.levelMap = 2;
+    }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        this.UserName = userName;
+        this.userName = userName;
     }
 
     public int getLevelMap() {
@@ -21,18 +27,11 @@ public class Profile {
         this.levelMap = levelMap;
     }
 
-    public int getHightScore() {
-        return HightScore;
+    public int getHighScore() {
+        return highScore;
     }
 
-    public void setHightScore(int hightScore) {
-        HightScore = hightScore;
-    }
-
-    public void Display(){
-        System.out.println("<> " + this.UserName);
-        System.out.println("<> " + this.HightScore);
-        System.out.println("<> " + this.levelMap);
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
     }
 }
-

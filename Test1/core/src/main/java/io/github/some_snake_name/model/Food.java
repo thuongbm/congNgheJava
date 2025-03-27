@@ -15,6 +15,7 @@ public class Food {
     private boolean isEaten;
 
     // Constructor
+    public Food(){}
     public Food(double x, double y, float radius) {
         this.posX = x;
         this.posY = y;
