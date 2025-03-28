@@ -13,6 +13,7 @@ public class SnakeModel {
     private boolean isGameOver;
     private Camera camera;
     private Map map;
+    private Wall wall = new Wall(map.getMap());
 
     public SnakeModel(){
         food = new Food();
@@ -22,7 +23,7 @@ public class SnakeModel {
 
         map = new Map("Map/Map3/Map/Map3.tmx");
         snake = new Snake(map.getMap(),
-            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"),5, 5);
+            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"), wall, 5, 5);
         camera = new Camera(this.snake);
 
     }

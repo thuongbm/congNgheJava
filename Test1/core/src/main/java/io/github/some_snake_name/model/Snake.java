@@ -14,14 +14,16 @@ public class Snake {
     private List<int[]> snakeBody = new ArrayList<>();
     private float moveTimer = 0f;
     private final float MOVE_INTERVAL = 0.15f;
+    private Wall wall;
 
     public  Snake(){}
 
-    public Snake(TiledMap map, TiledMapTileLayer layer, int startX, int startY) {
+    public Snake(TiledMap map, TiledMapTileLayer layer,Wall wall, int startX, int startY) {
         this.map = map;
         this.layer = layer;
         this.posX = startX;
         this.posY = startY;
+        this.wall = wall;
 
         // Thêm phần thân ban đầu
         for (int i = 1; i <= 4; i++) { // Ban đầu rắn có 3 đốt
@@ -55,8 +57,13 @@ public class Snake {
             snakeBody.add(0, new int[]{oldX, oldY});
         }
 
+        if (wall.IsWall(posX, posY)) {
+            System.out.println("Game Over");
+        }
+
         // Cập nhật vị trí mới trên bản đồ
         updatePosition();
+
     }
 
     private void clearOldPosition() {
@@ -87,6 +94,8 @@ public class Snake {
             dirY = dy;
         }
     }
+
+
 
     public int getPosX() {
         return posX;
