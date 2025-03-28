@@ -7,12 +7,12 @@ import io.github.some_snake_name.model.SnakeModel;
 import io.github.some_snake_name.view.Screen;
 
 public class MenuController {
-    private SnakeModel snakeModel;
+//    private SnakeModel snakeModel;
     private Screen screen;
     private SnakeController snakeController;
 
     public MenuController() {
-        this.snakeModel = new SnakeModel();
+//        this.snakeModel = new SnakeModel();
         this.screen = new Screen(this);  // Truyền this vào Screen
         this.snakeController = new SnakeController();  // Khởi tạo snakeController
         this.setButton();
@@ -39,22 +39,22 @@ public class MenuController {
     }
 
     public void selectPlay() {
-        System.out.println("🎮 Chơi game!");
+        System.out.println("🎮 Play game!");
         snakeController.gamePlay();
     }
 
     public void selectProfile() {
-        Profile profile = snakeModel.getProfile();
+        System.out.println("🎮 Profile !");
+        Profile profile = snakeController.getSnakeModel().getProfile();
         this.screen.showProfile(profile);
     }
 
     public void selectExit(){
-        this.dispose();
-
+        System.out.println("🎮 Existed!");
     }
 
     public void selectHome(){
-
+        System.out.println("🎮 go Home!");
     }
 
     public void render() {
@@ -65,12 +65,10 @@ public class MenuController {
         return this.screen;
     }
 
-    public SnakeModel getSnakeModel(){
-        return this.snakeModel;
-
-    }
 
     public void dispose() {
+
         this.screen.dispose();
+        this.snakeController.dispose();
     }
 }

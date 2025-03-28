@@ -1,64 +1,60 @@
 package io.github.some_snake_name.model;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.utils.ScreenUtils;
+
 public class SnakeModel {
     private Snake snake;
     private Food food;
     private Profile profile;
     private int score;
+    private boolean isGameOver;
+    private Camera camera;
+    private Map map;
+
     public SnakeModel(){
-        snake = new Snake();
         food = new Food();
         profile=new Profile();
         score =0;
-//        gameMap = new GameMap("Map/Map1/examples/Test/ran1.tmx");
-//        snake = new Snake(gameMap.getMap(),
-//       (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) gameMap.getMap().getLayers().get("snake"),5, 5);
-//        gameCamera = new GameCamera(snake);
+        isGameOver = false;
+
+        map = new Map("Map/Map3/Map/Map3.tmx");
+        snake = new Snake(map.getMap(),
+            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"),5, 5);
+        camera = new Camera(this.snake);
+
     }
 
+    public void render(){
+        ScreenUtils.clear(Color.BLACK);
+        map.render(camera);
 
-    //    public SnakeModel() {
-//        gameMap = new GameMap("Map/Map1/examples/Test/ran1.tmx");
-//        snake = new Snake(gameMap.getMap(),
-//            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) gameMap.getMap().getLayers().get("snake"),
-//            5, 5);
-//        food = new Food();
-    ////        food.generateNewFood(gameMap.getMapWidth(), gameMap.getMapHeight());
-//        profile = new Profile();
-//        gameOver = false;
-//        score = 0;
-//    }
+        handleInput();
+        snake.update(Gdx.graphics.getDeltaTime());
+        camera.update(Gdx.graphics.getDeltaTime());
+    }
+    private void handleInput() {
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) snake.changeDirection(1, 0);
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) snake.changeDirection(-1, 0);
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) snake.changeDirection(0, 1);
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) snake.changeDirection(0, -1);
+    }
+    public void resize(int width, int height) {
+        camera.resize(width, height);
+    }
 
-//    public void update(float deltaTime) {
-//        if (!gameOver) {
-//            snake.update(deltaTime);
-//
-//            if (snake.checkFoodCollision(food)) {
-//                score += 10;
-//                food.generateNewFood(gameMap.getMapWidth(), gameMap.getMapHeight());
-//                if (score > profile.getHighScore()) {
-//                    profile.setHighScore(score);
-//                }
-//            }
-//
-//            gameOver = snake.checkSelfCollision() ||
-//                snake.checkWallCollision(gameMap.getMapWidth(), gameMap.getMapHeight());
-//        }
-//    }
+    public void dispose(){
+        map.dispose();
+    }
 
-//    public void resetGame() {
-//        snake.dispose();
-//        snake = new Snake(gameMap.getMap(),
-//            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) gameMap.getMap().getLayers().get("snake"),
-//            5, 5);
-//        food.generateNewFood(gameMap.getMapWidth(), gameMap.getMapHeight());
-//        gameOver = false;
-//        score = 0;
-//    }
 
     public Snake getSnake() { return snake; }
     public Food getFood() { return food; }
     public Profile getProfile() { return profile; }
     public int getScore() { return score; }
-
+    public boolean getisGameOver(){ return isGameOver;}
+    public Camera getCamera(){return camera;}
+    public Map getMap(){return map;}
 }
