@@ -57,9 +57,9 @@ public class Snake {
             snakeBody.add(0, new int[]{oldX, oldY});
         }
 
-        if (wall.IsWall(posX, posY)) {
-            System.out.println("Game Over");
-        }
+//        if (wall.IsWall(posX, posY)) {
+//            System.out.println("Game Over");
+//        }
 
         // Cập nhật vị trí mới trên bản đồ
         updatePosition();
@@ -96,7 +96,6 @@ public class Snake {
     }
 
 
-
     public int getPosX() {
         return posX;
     }
@@ -104,4 +103,6 @@ public class Snake {
     public int getPosY() {
         return posY;
     }
+
+
 }
