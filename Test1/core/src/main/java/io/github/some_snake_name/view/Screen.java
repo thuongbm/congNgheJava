@@ -3,37 +3,50 @@ package io.github.some_snake_name.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL32;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import io.github.some_snake_name.controller.MenuController;
 import io.github.some_snake_name.model.Profile;
-import java.util.Scanner;
-
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.graphics.Texture;
+import io.github.some_snake_name.model.SnakeModel;
 
 import static com.badlogic.gdx.Gdx.gl;
 
 public class Screen {
-    private MenuController menuController;
     private MenuPanel menuPanel;
-    private Stage currentStage;  // Quản lý Stage hiện tại
+    private Stage currentStage;
+    private boolean isGameRunning;
 
     public Screen(MenuController menuController) {
-        this.menuController = menuController;
         this.menuPanel = new MenuPanel(menuController);
-        this.currentStage = menuPanel.getStage();  // Mặc định là menuPanel
+        this.currentStage = menuPanel.getStage();
+        this.isGameRunning = false;
     }
 
-    public void render() {
-        Gdx.gl.glClear(GL32.GL_COLOR_BUFFER_BIT);
-        Gdx.gl.glClearColor(0f, 0f, 0f, 1f); // Màu đen
+    public void render(SnakeModel model) {
 
-        currentStage.getViewport().apply();
-        currentStage.act(Gdx.graphics.getDeltaTime());
-        currentStage.draw();
+        if (isGameRunning ) {
+            // Vẽ game trong View
+            model.getCamera().resize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+            ScreenUtils.clear(Color.BLACK);
+            model.getCamera().getCamera().update();
+            model.getMap().getRenderer().setView(model.getCamera().getCamera());
+            // vẽ bản đồ
+            model.getMap().getRenderer().render();
+            //caapj nhật logic game
+            model.update(Gdx.graphics.getDeltaTime());
+        } else {
+            Gdx.gl.glClear(GL32.GL_COLOR_BUFFER_BIT);
+            Gdx.gl.glClearColor(0f, 0f, 0f, 1f); // Màu đen
+            // Vẽ menu hoặc profile
+            currentStage.getViewport().apply();
+            currentStage.act(Gdx.graphics.getDeltaTime());
+            currentStage.draw();
+        }
     }
 
     public void showProfile(Profile profile) {
@@ -42,14 +55,13 @@ public class Screen {
         Gdx.input.setInputProcessor(profileStage);
 
         Image background = new Image(new Texture("ui/Transparent_PNG/layer-3-ground.png"));
-        background.setSize(profileStage.getWidth(),profileStage.getHeight());
+        background.setSize(profileStage.getWidth(), profileStage.getHeight());
         profileStage.addActor(background);
 
         Table table = new Table();
         table.setFillParent(true);
         profileStage.addActor(table);
 
-        // Hiển thị thông tin Profile
         Label profileLabel = new Label("📌PROFILE", skin);
         table.add(profileLabel).width(300).height(100);
         table.row();
@@ -66,31 +78,54 @@ public class Screen {
         table.add(levelMapLabel).width(300).height(100);
         table.row();
 
-        // Thêm nút Back để quay lại menu chính
         TextButton backButton = new TextButton("Back", skin);
         backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentStage = menuPanel.getStage();  // Chuyển về menuPanel
+                currentStage = menuPanel.getStage();
                 Gdx.input.setInputProcessor(currentStage);
             }
         });
-        backButton.setPosition(20,20);
-        backButton.setSize(100,100);
+        backButton.setPosition(20, 20);
+        backButton.setSize(100, 100);
         backButton.setColor(new Color(Color.GREEN));
         profileStage.addActor(backButton);
-        currentStage = profileStage;  // Chuyển sang profileStage
+        currentStage = profileStage;
     }
 
-    public void resize(int width, int height) {
+    public void startGame() {
+        this.isGameRunning = true;
+        Gdx.input.setInputProcessor(null);
 
     }
 
-    public void dispose() {
+//    public void stopGame() {
+//        this.isGameRunning = false;
+//       this.snakeModel = null;
+//        this.currentStage = menuPanel.getStage();
+//        Gdx.input.setInputProcessor(currentStage);
+//    }
+
+//    public void resize(int width, int height) {
+//        if (isGameRunning && snakeModel != null) {
+//            snakeModel.resize(width, height);
+//        }
+//    }
+
+    public void dispose(SnakeModel model) {
         menuPanel.dispose();
         if (currentStage != menuPanel.getStage()) {
-            currentStage.dispose();  // Dispose profileStage nếu đang hiển thị
+            currentStage.dispose();
+        }
+        if(model != null){
+            if(model.getMap().getMap() != null) model.getMap().getMap().dispose();
+            if(model.getMap().getRenderer() != null) model.getMap().getRenderer().dispose();
+            if(model.getMap().getAssetManager() != null ) model.getMap().getAssetManager().dispose();
         }
     }
-    public MenuPanel getMenuPanel(){return this.menuPanel;}
+
+    public MenuPanel getMenuPanel() {
+        return this.menuPanel;
+    }
+    public boolean getisGameRunning(){return this.isGameRunning;}
 }

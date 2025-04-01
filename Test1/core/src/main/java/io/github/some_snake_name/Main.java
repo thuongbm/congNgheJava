@@ -11,11 +11,11 @@ import io.github.some_snake_name.controller.MenuController;
 import io.github.some_snake_name.model.Wall;
 
 public class Main extends ApplicationAdapter {
-    private Snake snake;
-    private GameCamera cameraController;
-    private GameMap mapLoader;
-    private Wall wall;
-
+//    private Snake snake;
+//    private GameCamera cameraController;
+//    private GameMap mapLoader;
+//    private Wall wall;
+//
 //    @Override
 //    public void create() {
 //        mapLoader = new GameMap("Map/Map3/Map/Map3.tmx");

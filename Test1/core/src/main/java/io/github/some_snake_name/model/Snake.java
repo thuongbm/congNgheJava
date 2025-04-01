@@ -26,7 +26,7 @@ public class Snake {
         this.wall = wall;
 
         // Thêm phần thân ban đầu
-        for (int i = 1; i <= 4; i++) { // Ban đầu rắn có 3 đốt
+        for (int i = 1; i <= 6; i++) { // Ban đầu rắn có 3 đốt
             snakeBody.add(new int[]{startX + i, startY});
         }
 
@@ -57,8 +57,8 @@ public class Snake {
             snakeBody.add(0, new int[]{oldX, oldY});
         }
 
-        if (wall.IsWall(posX, posY)) {
-            System.out.println("Game Over");
+        if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
+            System.exit(0);
         }
 
         // Cập nhật vị trí mới trên bản đồ
@@ -95,7 +95,14 @@ public class Snake {
         }
     }
 
-
+    public Boolean isBody(int x, int y) {
+        for (int[] part : snakeBody) {
+            if (part[0] == x && part[1] == y) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int getPosX() {
         return posX;
@@ -104,4 +111,6 @@ public class Snake {
     public int getPosY() {
         return posY;
     }
+
+
 }

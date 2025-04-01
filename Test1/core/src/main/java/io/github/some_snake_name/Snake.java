@@ -79,13 +79,13 @@ public class Snake {
         // Cập nhật thân rắn
         for (int[] part : snakeBody) {
             TiledMapTileLayer.Cell bodyCell = new TiledMapTileLayer.Cell();
-            bodyCell.setTile(map.getTileSets().getTile(233)); // Mã tile của thân rắn
+            bodyCell.setTile(map.getTileSets().getTile(1454)); // Mã tile của thân rắn
             layer.setCell(part[0], part[1], bodyCell);
         }
 
         // Cập nhật đầu rắn
         TiledMapTileLayer.Cell headCell = new TiledMapTileLayer.Cell();
-        headCell.setTile(map.getTileSets().getTile(230)); // Mã tile của đầu rắn
+        headCell.setTile(map.getTileSets().getTile(1453)); // Mã tile của đầu rắn
         layer.setCell(posX, posY, headCell);
     }
 
