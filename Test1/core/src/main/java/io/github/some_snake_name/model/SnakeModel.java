@@ -24,7 +24,7 @@ public class SnakeModel {
         map = new Map("Map/Map3/Map/Map3.tmx");
         snake = new Snake(map.getMap(),
             (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"), wall, 5, 5);
-        camera = new Camera(this.snake);
+        camera = new Camera(this.snake,map.getWorldWidth(),map.getWorldHeight());
         wall = new Wall(map.getMap());
     }
 

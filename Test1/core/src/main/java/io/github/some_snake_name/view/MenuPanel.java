@@ -33,6 +33,7 @@ public class MenuPanel {
 
         Image background = new Image(backgroundTexture);
         background.setSize(this.stage.getWidth(),this.stage.getHeight());
+        background.setFillParent(true);
         this.stage.addActor(background);
 
         Table table = new Table();

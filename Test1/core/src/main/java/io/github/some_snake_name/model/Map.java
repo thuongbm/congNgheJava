@@ -22,14 +22,26 @@ public class Map {
             Gdx.app.error("Map","Không thể tải bản đồ: "+ mapPath);
         }
         renderer = new OrthogonalTiledMapRenderer(map);
+
+        int tileWidth = map.getProperties().get("tilewidth", Integer.class);
+        int tileHeight = map.getProperties().get("tileheight", Integer.class);
+        int mapWidth = map.getProperties().get("width", Integer.class);
+        int mapHeight = map.getProperties().get("height", Integer.class);
+        Gdx.app.log("Map", "Map size: " + (mapWidth * tileWidth) + "x" + (mapHeight * tileHeight));
+
     }
 
-    public void render(Camera camera) {
-        renderer.setView(camera.getCamera());
-        renderer.render();
+    public float getWorldWidth() {
+        int tileWidth = map.getProperties().get("tilewidth", Integer.class);
+        int mapWidth = map.getProperties().get("width", Integer.class);
+        return mapWidth * tileWidth;
     }
 
-
+    public float getWorldHeight() {
+        int tileHeight = map.getProperties().get("tileheight", Integer.class);
+        int mapHeight = map.getProperties().get("height", Integer.class);
+        return mapHeight * tileHeight;
+    }
     public TiledMap getMap() {return map;}
     public OrthogonalTiledMapRenderer getRenderer(){return renderer;}
     public AssetManager getAssetManager (){return assetManager;}
