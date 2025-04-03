@@ -15,18 +15,20 @@ public class Snake {
     private float moveTimer = 0f;
     private final float MOVE_INTERVAL = 0.15f;
     private Wall wall;
+    private Food food;
 
     public  Snake(){}
 
-    public Snake(TiledMap map, TiledMapTileLayer layer,Wall wall, int startX, int startY) {
+    public Snake(TiledMap map, TiledMapTileLayer layer,Wall wall, Food food, int startX, int startY) {
         this.map = map;
         this.layer = layer;
         this.posX = startX;
         this.posY = startY;
         this.wall = wall;
+        this.food = food;
 
         // Thêm phần thân ban đầu
-        for (int i = 1; i <= 6; i++) { // Ban đầu rắn có 3 đốt
+        for (int i = 1; i <= 3; i++) { // Ban đầu rắn có 3 đốt
             snakeBody.add(new int[]{startX + i, startY});
         }
 
@@ -57,10 +59,16 @@ public class Snake {
             snakeBody.add(0, new int[]{oldX, oldY});
         }
 
+        food.SpawnRandomFood();
+
         if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
             System.exit(0);
         }
 
+        if (food.IsFood(posX, posY)) {
+            food.HasBeenEaten(posX, posY);
+            grow();
+        }
         // Cập nhật vị trí mới trên bản đồ
         updatePosition();
 
@@ -78,13 +86,20 @@ public class Snake {
         // Cập nhật thân rắn
         for (int[] part : snakeBody) {
             TiledMapTileLayer.Cell bodyCell = new TiledMapTileLayer.Cell();
-            bodyCell.setTile(map.getTileSets().getTile(233)); // Mã tile của thân rắn
+            bodyCell.setTile(map.getTileSets().getTile(1454)); // Mã tile của thân rắn
             layer.setCell(part[0], part[1], bodyCell);
         }
 
         // Cập nhật đầu rắn
         TiledMapTileLayer.Cell headCell = new TiledMapTileLayer.Cell();
-        headCell.setTile(map.getTileSets().getTile(230)); // Mã tile của đầu rắn
+        TiledMapTileLayer.Cell head1Cell = new TiledMapTileLayer.Cell();
+        TiledMapTileLayer.Cell head2Cell = new TiledMapTileLayer.Cell();
+        TiledMapTileLayer.Cell head3Cell = new TiledMapTileLayer.Cell();
+
+        headCell.setTile(map.getTileSets().getTile(1453));// Mã tile của đầu rắn
+        head1Cell.setTile(map.getTileSets().getTile(1452));// Mã tile của đầu rắn
+        head2Cell.setTile(map.getTileSets().getTile(1451));// Mã tile của đầu rắn
+        head3Cell.setTile(map.getTileSets().getTile(1450));// Mã tile của đầu rắn
         layer.setCell(posX, posY, headCell);
     }
 
@@ -104,6 +119,14 @@ public class Snake {
         return false;
     }
 
+    public void grow() {
+        // Thêm một phần thân mới vào vị trí cuối cùng của rắn
+        if (!snakeBody.isEmpty()) {
+            int[] lastPart = snakeBody.get(snakeBody.size() - 1);
+            snakeBody.add(new int[]{lastPart[0], lastPart[1]});
+        }
+    }
+
     public int getPosX() {
         return posX;
     }
@@ -111,6 +134,5 @@ public class Snake {
     public int getPosY() {
         return posY;
     }
-
 
 }

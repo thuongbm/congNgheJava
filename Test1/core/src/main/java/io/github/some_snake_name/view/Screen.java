@@ -31,7 +31,7 @@ public class Screen {
 
         if (isGameRunning ) {
             // Vẽ game trong View
-            model.getCamera().resize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+            model.getCamera().resize(1000, 1000);
             ScreenUtils.clear(Color.BLACK);
             model.getCamera().getCamera().update();
             model.getMap().getRenderer().setView(model.getCamera().getCamera());

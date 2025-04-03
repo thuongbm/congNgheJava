@@ -58,7 +58,7 @@ public class Main extends ApplicationAdapter {
         try {
             Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
             config.setTitle("Snake Game");
-            config.setWindowedMode(640, 600);
+            config.setWindowedMode(640, 640);
             new Lwjgl3Application(new Main(), config);
         } catch (Exception e) {
             throw new RuntimeException(e);

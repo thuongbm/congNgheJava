@@ -6,51 +6,63 @@ import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.math.MathUtils;
 public class Food {
-    private double posX;
-    private double posY;
-    private float radius; // Bán kính của thức ăn
-    private boolean isEaten;
+    private TiledMapTileLayer foodLayer;
+    private TiledMap map;
+    private Wall wall;
+    private boolean foodSpawned = false;
+    private Background background;
+    private int posFoodX;
+    private int posFoodY;
 
-    // Constructor
-    public Food(){}
-    public Food(double x, double y, float radius) {
-        this.posX = x;
-        this.posY = y;
-        this.radius = radius;
-        this.isEaten = false;
+    public Food (TiledMap map, Wall wall, Background background) {
+        this.map = map;
+        this.wall = wall;
+        this.background = background;
+
+        // Initialize the food layer
+        foodLayer = (TiledMapTileLayer) map.getLayers().get("Snake and food");
+
     }
 
-    // Getter và Setter (nếu cần)
-    public double getPosX() {
-        return posX;
+    public void DisplayFood(int x, int y) {
+        TiledMapTileLayer.Cell foodCell = new TiledMapTileLayer.Cell();
+        foodCell.setTile(map.getTileSets().getTile(1455));
+        foodLayer.setCell(x, y, foodCell);
     }
 
-    public double getPosY() {
-        return posY;
-    }
+    public void SpawnRandomFood() {
+        if (!foodSpawned){
+            int x, y;
+            do {
+                x = MathUtils.random(0, foodLayer.getWidth());
+                y = MathUtils.random(0, foodLayer.getHeight());
+            } while (foodLayer.getCell(x, y) != null || wall.IsWall(x, y) || !background.IsBackground(x, y));
 
-    public float getRadius() {
-        return radius;
-    }
-
-    public boolean getStatus() {
-        return isEaten;
-    }
-
-    public void setStatus(boolean status) {
-        this.isEaten = status;
-    }
-
-    // Vẽ thức ăn
-    public void render(ShapeRenderer shapeRenderer) {
-        if (!isEaten) { // Chỉ vẽ nếu mồi chưa bị ăn
-            shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);// vẽ đặc
-            shapeRenderer.setColor(Color.GREEN); // Màu thức ăn
-            shapeRenderer.circle((float) posX, (float) posY, radius); // Vẽ thức ăn dưới dạng hình tròn
-            shapeRenderer.end();
+            DisplayFood(x, y);
+            posFoodX = x;
+            posFoodY = y;
+            foodSpawned = true;
         }
     }
+
+    public boolean IsFood(int x, int y) {
+        if (x == posFoodX && y == posFoodY) {
+            return true;
+        }
+        else return false;
+    }
+
+    public void HasBeenEaten(int x, int y) {
+        if (foodLayer.getCell(x, y) != null) {
+            foodLayer.setCell(x, y, null);
+            foodSpawned = false;
+        }
+    }
+
 }

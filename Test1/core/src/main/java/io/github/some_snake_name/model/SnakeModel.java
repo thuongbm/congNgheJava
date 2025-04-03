@@ -14,28 +14,36 @@ public class SnakeModel {
     private Camera camera;
     private Map map;
     private Wall wall ;
+    private Food foodl;
+    private Background background;
 
     public SnakeModel(){
-        food = new Food();
         profile=new Profile();
         score =0;
         isGameOver = false;
 
         map = new Map("Map/Map5/Map/Map5.tmx");
+        background = new Background(map.getMap());
         wall = new Wall(map.getMap());
+        food = new Food(map.getMap(), wall, background);
         snake = new Snake(map.getMap(),
-            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"), wall, 5, 5);
+            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"), wall, food,5, 5);
         camera = new Camera(this.snake);
     }
 
     private void handleInput() {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-
             snake.changeDirection(1, 0);
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) snake.changeDirection(-1, 0);
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) snake.changeDirection(0, 1);
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) snake.changeDirection(0, -1);
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            snake.changeDirection(-1, 0);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)){
+            snake.changeDirection(0, 1);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)){
+            snake.changeDirection(0, -1);
+        }
     }
 
     public void update(float deltaTime) {

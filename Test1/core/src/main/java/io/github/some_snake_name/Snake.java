@@ -96,6 +96,13 @@ public class Snake {
         }
     }
 
+    public void grow() {
+        // Thêm một phần mới vào thân rắn
+        int[] lastPart = snakeBody.get(snakeBody.size() - 1);
+        snakeBody.add(new int[]{lastPart[0], lastPart[1]});
+    }
+
+
     public int getPosX() {
         return posX;
     }
