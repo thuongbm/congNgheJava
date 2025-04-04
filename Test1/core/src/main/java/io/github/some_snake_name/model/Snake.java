@@ -1,5 +1,7 @@
 package io.github.some_snake_name.model;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
@@ -92,14 +94,18 @@ public class Snake {
 
         // Cập nhật đầu rắn
         TiledMapTileLayer.Cell headCell = new TiledMapTileLayer.Cell();
-        TiledMapTileLayer.Cell head1Cell = new TiledMapTileLayer.Cell();
-        TiledMapTileLayer.Cell head2Cell = new TiledMapTileLayer.Cell();
-        TiledMapTileLayer.Cell head3Cell = new TiledMapTileLayer.Cell();
+        if (dirX == 1 && dirY == 0) {
+            headCell.setTile(map.getTileSets().getTile(1453)); // phải
+        } else if (dirX == -1 && dirY == 0) {
+            headCell.setTile(map.getTileSets().getTile(1451)); // trái
+        } else if (dirX == 0 && dirY == 1) {
+            headCell.setTile(map.getTileSets().getTile(1450)); // lên
+        } else if (dirX == 0 && dirY == -1) {
+            headCell.setTile(map.getTileSets().getTile(1452)); // xuống
+        } else {
+            headCell.setTile(map.getTileSets().getTile(1453)); // default fallback
+        }
 
-        headCell.setTile(map.getTileSets().getTile(1453));// Mã tile của đầu rắn
-        head1Cell.setTile(map.getTileSets().getTile(1452));// Mã tile của đầu rắn
-        head2Cell.setTile(map.getTileSets().getTile(1451));// Mã tile của đầu rắn
-        head3Cell.setTile(map.getTileSets().getTile(1450));// Mã tile của đầu rắn
         layer.setCell(posX, posY, headCell);
     }
 
@@ -124,6 +130,30 @@ public class Snake {
         if (!snakeBody.isEmpty()) {
             int[] lastPart = snakeBody.get(snakeBody.size() - 1);
             snakeBody.add(new int[]{lastPart[0], lastPart[1]});
+        }
+    }
+
+    public void HeadDirection(int dx, int dy) {
+        TiledMapTileLayer.Cell headCell = new TiledMapTileLayer.Cell();
+        TiledMapTileLayer.Cell head1Cell = new TiledMapTileLayer.Cell();
+        TiledMapTileLayer.Cell head2Cell = new TiledMapTileLayer.Cell();
+        TiledMapTileLayer.Cell head3Cell = new TiledMapTileLayer.Cell();
+
+        headCell.setTile(map.getTileSets().getTile(1453));// Mã tile của đầu rắn
+        head1Cell.setTile(map.getTileSets().getTile(1452));// Mã tile của đầu rắn
+        head2Cell.setTile(map.getTileSets().getTile(1451));// Mã tile của đầu rắn
+        head3Cell.setTile(map.getTileSets().getTile(1450));// Mã tile của đầu rắn
+        if (dx == 1 && dy == 0) {
+            layer.setCell(posX, posY, headCell);
+        }
+        else if (dx == -1 && dy == 0) {
+            layer.setCell(posX, posY, head2Cell);
+        }
+        else if (dx == 0 && dy == 1) {
+            layer.setCell(posX, posY, head1Cell);
+        }
+        else if (dx == 0 && dy == -1) {
+            layer.setCell(posX, posY, head3Cell);
         }
     }
 

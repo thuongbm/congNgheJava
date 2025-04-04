@@ -56,8 +56,6 @@ public class SnakeModel {
         camera.resize(width, height);
     }
 
-
-
     public Snake getSnake() { return snake; }
     public Food getFood() { return food; }
     public Profile getProfile() { return profile; }
