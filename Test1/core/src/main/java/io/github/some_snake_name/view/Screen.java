@@ -99,18 +99,6 @@ public class Screen {
 
     }
 
-//    public void stopGame() {
-//        this.isGameRunning = false;
-//       this.snakeModel = null;
-//        this.currentStage = menuPanel.getStage();
-//        Gdx.input.setInputProcessor(currentStage);
-//    }
-
-//    public void resize(int width, int height) {
-//        if (isGameRunning && snakeModel != null) {
-//            snakeModel.resize(width, height);
-//        }
-//    }
 
     public void dispose(SnakeModel model) {
         menuPanel.dispose();
@@ -122,6 +110,12 @@ public class Screen {
             if(model.getMap().getRenderer() != null) model.getMap().getRenderer().dispose();
             if(model.getMap().getAssetManager() != null ) model.getMap().getAssetManager().dispose();
         }
+    }
+
+    public void resize(int width, int height,SnakeModel model) {
+        currentStage.getViewport().update(width, height, true);
+
+        model.getCamera().resize(width, height);
     }
 
     public MenuPanel getMenuPanel() {

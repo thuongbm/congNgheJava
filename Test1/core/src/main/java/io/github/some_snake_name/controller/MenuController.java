@@ -63,7 +63,9 @@ public class MenuController {
         System.out.println("🎮 Go Home!");
         // Có thể thêm logic nếu cần quay lại menu chính từ trạng thái khác
     }
-
+    public void resize(int width, int height) {
+        this.screen.resize(width,height, this.snakeModel);
+    }
     public void render() {
         this.screen.render(this.snakeModel); // Giao việc vẽ cho Screen
     }
