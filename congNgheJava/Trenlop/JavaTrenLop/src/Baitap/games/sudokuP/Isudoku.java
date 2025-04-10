@@ -8,4 +8,5 @@ public interface Isudoku {
     void PrintBoard(int[][] board);
     Boolean IsValid(int[][] board, int row, int col, int num);
     boolean CheckBoard(int[][] board);
+    void UndoGame(int[][] board);
 }

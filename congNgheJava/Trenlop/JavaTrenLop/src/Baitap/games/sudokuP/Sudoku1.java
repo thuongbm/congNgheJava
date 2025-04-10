@@ -2,7 +2,14 @@ package Baitap.games.sudokuP;
 
 import java.util.*;
 
+import Baitap.games.sudokuP.Interact.Pair;
+import Baitap.games.sudokuP.Interact.Redo;
+import Baitap.games.sudokuP.Interact.Undo;
+
 public class Sudoku1 implements Isudoku {
+    private Redo redo = new Redo();
+     private Undo undo = new Undo(redo);
+
     public boolean GenerateBoard(int[][] board) {
         return SolveBoard(board);
     }
@@ -57,28 +64,30 @@ public class Sudoku1 implements Isudoku {
     public void Input(int[][] board) {
         Scanner sc = new Scanner(System.in);
 
-        while(!CheckBoard(board)) {
-            System.out.print("Nhap toa do x (0-8): ");
-            int x = sc.nextInt();
-            System.out.print("Nhap toa do y (0-8): ");
-            int y = sc.nextInt();
-            if (x >= 0 && x < 9 && y >= 0 && y < 9) {
-                if (board[x][y] == 0) {
-                    int value;
-                    do {
-                        System.out.print("Nhap gia tri hop le (1-9) cho o [" + x + "][" + y + "]: ");
-                        value = sc.nextInt();
-                    } while(value < 1 || value > 9 || !IsValid(board, x, y, value));
-
-                    board[x][y] = value;
-                } else {
-                    System.out.println("O nay da co gia tri khac 0. Vui long chon o khac.");
-                }
-            } else {
-                System.out.println("Toa do khong hop le. Vui long nhap lai.");
-            }
+        System.out.print("Nhap toa do x (0-8): ");
+        int x = sc.nextInt();
+        System.out.print("Nhap toa do y (0-8): ");
+        int y = sc.nextInt();
+        while (x < 0 || x > 8 || y < 0 || y > 8) {
+            System.out.print("Nhap lai toa do x (0-8): ");
+            x = sc.nextInt();
+            System.out.print("Nhap lai toa do y (0-8): ");
+            y = sc.nextInt();
         }
 
+        undo.addUndo(x, y, board[x][y]);
+
+        if (board[x][y] == 0) {
+            int value;
+            do {
+                System.out.print("Nhap gia tri hop le (1-9) cho o [" + x + "][" + y + "]: ");
+                value = sc.nextInt();
+            } while(value < 1 || value > 9 || !IsValid(board, x, y, value));
+
+            board[x][y] = value;
+        } else {
+            System.out.println("O nay da co gia tri khac 0. Vui long chon o khac.");
+        }
     }
 
     public boolean CheckBoard(int[][] board) {
@@ -151,6 +160,50 @@ public class Sudoku1 implements Isudoku {
             }
 
             System.out.println();
+        }
+    }
+
+    public void Delete(int[][] board) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap toa do x (0-8): ");
+        int x = scanner.nextInt();
+        System.out.println("Nhap toa do y (0-8): ");
+        int y = scanner.nextInt();
+        if (board[x][y] != 0) {
+            undo.addUndo(x, y, board[x][y]);
+            board[x][y] = 0;
+        } else {
+            System.out.println("O nay da rong.");
+        }
+    }
+
+    public void UndoGame(int [][] board) {
+        Pair<int[][], Integer> undoData = undo.getLastUndo();
+        if (undoData != null) {
+            int posX = undoData.getKey()[0][0];
+            int posY = undoData.getKey()[0][1];
+            int value = undoData.getValue();
+
+            board[posX][posY] = value;
+
+            PrintBoard(board);
+        } else {
+            System.out.println("Khong co thao tac hoan tac nao de thuc hien.");
+        }
+    }
+
+    public void Redo(int[][] board) {
+        Pair <int[][], Integer> redoData = redo.getLastRedo();
+        if (redoData != null) {
+            int posX = redoData.getKey()[0][0];
+            int posY = redoData.getKey()[0][1];
+            int value = redoData.getValue();
+
+            board[posX][posY] = value;
+
+            PrintBoard(board);
+        } else {
+            System.out.println("Khong co thao tac redo nao de thuc hien.");
         }
     }
 }
