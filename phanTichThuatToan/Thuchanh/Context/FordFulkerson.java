@@ -1,3 +1,7 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 /******************************************************************************
  *  Compilation:  javac FordFulkerson.java
  *  Execution:    java FordFulkerson V E
@@ -46,7 +50,8 @@ public class FordFulkerson {
     private FlowEdge[] edgeTo;    // edgeTo[v] = last edge on shortest residual s->v path
     private double value;         // current value of max flow
     private double valueMinCut;
-    private Set<String> setA;
+    private final int s, t;
+    private final FlowNetwork G;
   
     /**
      * Compute a maximum flow and minimum cut in the network {@code G}
@@ -238,6 +243,46 @@ public class FordFulkerson {
         }
 
         return true;
+    }
+    
+    public List<Integer> setA() {
+        List<Integer> list = new ArrayList<>();
+        boolean[] marked = new boolean[G.V()];
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(s);
+        marked[s] = true;
+
+        while (!queue.isEmpty() && !marked[t]) {
+            int v = queue.poll();
+            list.add(v);
+
+            for (FlowEdge edge : G.adj(v)) {
+                int w = edge.other(v);
+
+                if (edge.residualCapacityTo(w) > 0 && !marked[w]) {
+                    marked[w] = true;
+                    queue.add(w);
+                }
+            }
+        }
+
+        return list;
+    }
+
+    public double valMinCut() {
+        List<Integer> list = setA();
+        double val = 0;
+
+        for (Integer i : list) {
+            for (FlowEdge edge : G.adj(i)) {
+                if (edge.from() == i && !list.contains(edge.to())) {
+                    val += edge.residualCapacityTo(i);
+                }
+            }
+        }
+
+        return val;
     }
 
 
