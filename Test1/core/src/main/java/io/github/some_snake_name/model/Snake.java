@@ -18,6 +18,7 @@ public class Snake {
     private final float MOVE_INTERVAL = 0.15f;
     private Wall wall;
     private Food food;
+    private Time time;
 
     public  Snake(){}
 
@@ -64,6 +65,7 @@ public class Snake {
         food.SpawnRandomFood();
 
         if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
+        //    time.TimePeriod();
             System.exit(0);
         }
 

@@ -24,7 +24,7 @@ public class MenuPanel {
     public MenuPanel(MenuController menuController){
         // tạo canvas
         Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
-        this.stage     = new Stage(new ExtendViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+        this.stage = new Stage(new ExtendViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
         Gdx.input.setInputProcessor(stage);
 
         // background stage
@@ -41,11 +41,11 @@ public class MenuPanel {
         this.stage.addActor(table);
 
         // tạo các button (actors)
-        this.playButton    = new TextButton("Play",   skin);
+        this.playButton = new TextButton("Play",   skin);
         table.add(this.playButton).width(300).height((100));
         table.row();
 
-        this.homeButton    = new TextButton("Home",   skin);
+        this.homeButton = new TextButton("Home",   skin);
         this.homeButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x,float y){
                 menuController.selectHome();

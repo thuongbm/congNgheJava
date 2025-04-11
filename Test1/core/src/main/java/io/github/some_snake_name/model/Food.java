@@ -1,16 +1,9 @@
 package io.github.some_snake_name.model;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.math.MathUtils;
+
 public class Food {
     private TiledMapTileLayer foodLayer;
     private TiledMap map;
@@ -59,7 +52,9 @@ public class Food {
     }
 
     public void HasBeenEaten(int x, int y) {
+
         if (foodLayer.getCell(x, y) != null) {
+
             foodLayer.setCell(x, y, null);
             foodSpawned = false;
         }
