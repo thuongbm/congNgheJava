@@ -51,10 +51,14 @@ public class Main extends ApplicationAdapter {
 //    }
 
     public static void main(String[] args) {
-        Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-        config.setTitle("Snake Game");
-        config.setWindowedMode(640, 640);
-        new Lwjgl3Application(new Main(), config);
+        try {
+            Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
+            config.setTitle("Snake Game");
+            config.setWindowedMode(640, 640);
+            new Lwjgl3Application(new Main(), config);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     private MenuController menuController;
 

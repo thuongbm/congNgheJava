@@ -98,7 +98,7 @@ public class Screen {
 
     public void startGame() {
         this.isGameRunning = true;
-        time.TimePeriod();
+//        time.TimePeriod();
         Gdx.input.setInputProcessor(null);
 
     }
