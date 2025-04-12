@@ -4,7 +4,7 @@ public class HighScore {
     private int total;
     private Long time;
 
-    public HighScore (int total) {
+    public HighScore(int total) {
         this.total = total;
     }
 
@@ -15,8 +15,6 @@ public class HighScore {
     public int getScore() {
         return total;
     }
-
-
 
 
 

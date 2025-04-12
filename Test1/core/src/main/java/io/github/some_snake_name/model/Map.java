@@ -27,6 +27,10 @@ public class Map {
         int tileHeight = map.getProperties().get("tileheight", Integer.class);
         int mapWidth = map.getProperties().get("width", Integer.class);
         int mapHeight = map.getProperties().get("height", Integer.class);
+
+        System.out.println("Map width: " + mapWidth);
+        System.out.println("Map height: " + mapHeight);
+
         Gdx.app.log("Map", "Map size: " + (mapWidth * tileWidth) + "x" + (mapHeight * tileHeight));
 
     }
