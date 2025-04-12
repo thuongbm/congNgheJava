@@ -1,9 +1,9 @@
 package io.github.some_snake_name.model;
 
-public class Score {
+public class HighScore {
     private int total;
 
-    public Score(int total) {
+    public HighScore(int total) {
         this.total = total;
     }
 
@@ -11,7 +11,7 @@ public class Score {
         return total;
     }
 
-    public int getScore() {
+    public int HighScore() {
         return total;
     }
 

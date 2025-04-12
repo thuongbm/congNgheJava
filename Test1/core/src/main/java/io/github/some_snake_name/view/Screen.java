@@ -31,7 +31,6 @@ public class Screen {
 
         if (isGameRunning ) {
             // Vẽ game trong View
-            model.getCamera().resize(1000, 1000);
             ScreenUtils.clear(Color.BLACK);
             model.getCamera().getCamera().update();
             model.getMap().getRenderer().setView(model.getCamera().getCamera());
@@ -75,7 +74,7 @@ public class Screen {
         table.row();
 
         Label levelMapLabel = new Label("🗺️ Cấp độ bản đồ: " + profile.getLevelMap(), skin);
-        table.add(levelMapLabel).width(300).height(100);
+        table.add(levelMapLabel).width(100).height(100);
         table.row();
 
         TextButton backButton = new TextButton("Back", skin);

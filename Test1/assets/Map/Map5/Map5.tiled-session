@@ -20,10 +20,10 @@
         },
         "Map/Map5.tmx": {
             "scale": 4.199791666666666,
-            "selectedLayer": 2,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 120.00595267622404,
-                "y": 73.8131851778362
+                "y": 73.69413165335584
             }
         },
         "Object/Grass.tsx": {
