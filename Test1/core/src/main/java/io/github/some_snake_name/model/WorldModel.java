@@ -2,10 +2,12 @@ package io.github.some_snake_name.model;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import io.github.some_snake_name.model.base.IModel;
 import io.github.some_snake_name.model.data.Profile;
 import io.github.some_snake_name.model.entities.*;
 
-public class SnakeModel {
+public class WorldModel implements IModel {
+
     private Snake snake;
     private Food food;
     private Profile profile;
@@ -16,7 +18,7 @@ public class SnakeModel {
     private Wall wall;
     private Background background;
 
-    public SnakeModel(){
+    public WorldModel(){
         profile=new Profile();
         score =0;
         isGameOver = false;
@@ -36,11 +38,16 @@ public class SnakeModel {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) snake.changeDirection(0, 1);
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) snake.changeDirection(0, -1);
     }
-
+    @Override
     public void update(float deltaTime) {
         handleInput();
         snake.update(deltaTime);
         camera.update(deltaTime);
+    }
+
+    @Override
+    public WorldModel getWorldModel() {
+        return this;
     }
 
     public void resize(int width, int height) {
@@ -56,4 +63,5 @@ public class SnakeModel {
     public boolean getisGameOver(){ return isGameOver;}
     public Camera getCamera(){return camera;}
     public Map getMap(){return map;}
+
 }

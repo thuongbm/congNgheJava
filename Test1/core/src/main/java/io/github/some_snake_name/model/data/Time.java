@@ -1,7 +1,4 @@
-package io.github.some_snake_name.model;
-
-import javax.print.attribute.standard.MediaName;
-import java.awt.event.InputEvent;
+package io.github.some_snake_name.model.data;
 
 public class Time {
     private long startTime;
