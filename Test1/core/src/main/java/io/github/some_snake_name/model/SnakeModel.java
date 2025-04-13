@@ -31,10 +31,22 @@ public class SnakeModel {
     }
 
     private void handleInput() {
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) snake.changeDirection(1, 0);
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) snake.changeDirection(-1, 0);
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) snake.changeDirection(0, 1);
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) snake.changeDirection(0, -1);
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
+            SoundManager.playKey();
+            snake.changeDirection(1, 0);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            SoundManager.playKey();
+            snake.changeDirection(-1, 0);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)){
+            SoundManager.playKey();
+            snake.changeDirection(0, 1);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)){
+            SoundManager.playKey();
+            snake.changeDirection(0, -1);
+        }
     }
 
     public void update(float deltaTime) {

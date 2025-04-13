@@ -11,9 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import io.github.some_snake_name.controller.MenuController;
-import io.github.some_snake_name.model.Profile;
-import io.github.some_snake_name.model.SnakeModel;
-import io.github.some_snake_name.model.Time;
+import io.github.some_snake_name.model.*;
 
 import static com.badlogic.gdx.Gdx.gl;
 
@@ -21,13 +19,14 @@ public class Screen {
     private MenuPanel menuPanel;
     private Stage currentStage;
     private boolean isGameRunning;
-    private Time time;
+    private static double timeStart;
 
     public Screen(MenuController menuController) {
         this.menuPanel = new MenuPanel(menuController);
         this.currentStage = menuPanel.getStage();
         this.isGameRunning = false;
 
+        SoundManager.loadSound();
     }
 
     public void render(SnakeModel model) {
@@ -97,7 +96,7 @@ public class Screen {
 
     public void startGame() {
         this.isGameRunning = true;
-//        time.TimePeriod();
+        Screen.setGameStart(System.currentTimeMillis());
         Gdx.input.setInputProcessor(null);
 
     }
@@ -125,4 +124,12 @@ public class Screen {
         return this.menuPanel;
     }
     public boolean getisGameRunning(){return this.isGameRunning;}
+
+    public static void setGameStart(double time){
+        timeStart = time;
+    }
+
+    public static double getTimeStart(){
+        return timeStart;
+    }
 }

@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import io.github.some_snake_name.controller.MenuController;
+import io.github.some_snake_name.view.Screen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,8 @@ public class Snake {
     private final float MOVE_INTERVAL = 0.15f;
     private Wall wall;
     private Food food;
-    private Time time;
+    private static double TimeEnd;
+    private static boolean isGameOver = false;
 
     public  Snake(){}
 
@@ -65,16 +68,26 @@ public class Snake {
         food.SpawnRandomFood();
 
         if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
-        //    time.TimePeriod();
+            isGameOver = true;
+            TimeEnd = System.currentTimeMillis();
+
+            Time time = new Time();
+            time.TimePeriod();
+
             System.exit(0);
         }
 
         if (food.IsFood(posX, posY)) {
+
+            SoundManager.playEat();
+
             food.HasBeenEaten(posX, posY);
             grow();
         }
+
         // Cập nhật vị trí mới trên bản đồ
         updatePosition();
+
 
     }
 
@@ -167,4 +180,11 @@ public class Snake {
         return posY;
     }
 
+    public static double getTimeEnd() {
+        return TimeEnd;
+    }
+
+    public static boolean IsGameOver() {
+       return isGameOver;
+    }
 }
