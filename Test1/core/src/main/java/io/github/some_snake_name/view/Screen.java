@@ -11,11 +11,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import io.github.some_snake_name.controller.MenuController;
-import io.github.some_snake_name.model.Profile;
+import io.github.some_snake_name.model.data.Profile;
 import io.github.some_snake_name.model.SnakeModel;
-import io.github.some_snake_name.model.Time;
-
-import static com.badlogic.gdx.Gdx.gl;
+import io.github.some_snake_name.model.data.Time;
 
 public class Screen {
     private MenuPanel menuPanel;

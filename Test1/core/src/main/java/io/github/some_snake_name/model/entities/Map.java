@@ -1,4 +1,4 @@
-package io.github.some_snake_name.model;
+package io.github.some_snake_name.model.entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;

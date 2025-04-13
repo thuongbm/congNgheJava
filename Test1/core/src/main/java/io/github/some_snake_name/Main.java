@@ -8,6 +8,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 import io.github.some_snake_name.controller.MenuController;
+import io.github.some_snake_name.controller.manager.MainController;
 
 public class Main extends ApplicationAdapter {
 //    private Snake snake;
@@ -60,27 +61,52 @@ public class Main extends ApplicationAdapter {
             throw new RuntimeException(e);
         }
     }
-    private MenuController menuController;
+//    private MenuController menuController;
+//
+//    @Override
+//    public void create() {
+//        menuController = new MenuController();
+//    }
+//
+//    @Override
+//    public void render() {
+//        menuController.render();
+//    }
+//
+//
+//    @Override
+//    public void resize(int width, int height) {
+//        menuController.resize(width,height);
+//    }
+//
+//    @Override
+//    public void dispose() {
+//
+//        menuController.dispose();
+//    }
+
+    private MainController mainController;
 
     @Override
     public void create() {
-        menuController = new MenuController();
+        mainController = new MainController();
+        mainController.create();
     }
 
     @Override
     public void render() {
-        menuController.render();
+        mainController.render();
     }
 
 
     @Override
     public void resize(int width, int height) {
-        menuController.resize(width,height);
+        mainController.resize(width,height);
     }
 
     @Override
     public void dispose() {
 
-        menuController.dispose();
+        mainController.dispose();
     }
 }
