@@ -1,20 +1,18 @@
 package io.github.some_snake_name.model;
 
 public class Score {
-    private int total;
+    public static int score = 0;
 
-    public Score(int total) {
-        this.total = total;
+    public Score() {
+
     }
 
-    public int getTotal() {
-        return total;
+    public static int getScore() {
+        return score;
     }
 
-    public int getScore() {
-        return total;
+    public static int inCrease(int amount) {
+        score += amount;
+        return score;
     }
-
-
-
 }

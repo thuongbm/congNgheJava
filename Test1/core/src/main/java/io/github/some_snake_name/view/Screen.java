@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL32;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -20,6 +21,7 @@ public class Screen {
     private Stage currentStage;
     private boolean isGameRunning;
     private static double timeStart;
+    private ScoreBoard scoreBoard = new ScoreBoard();
 
     public Screen(MenuController menuController) {
         this.menuPanel = new MenuPanel(menuController);
@@ -32,6 +34,10 @@ public class Screen {
     public void render(SnakeModel model) {
 
         if (isGameRunning ) {
+            SpriteBatch batch = new SpriteBatch();
+
+            batch.begin();
+
             // Vẽ game trong View
             ScreenUtils.clear(Color.BLACK);
             model.getCamera().getCamera().update();
@@ -40,6 +46,9 @@ public class Screen {
             model.getMap().getRenderer().render();
             //caapj nhật logic game
             model.update(Gdx.graphics.getDeltaTime());
+            //ve bảng điểm
+            scoreBoard.Render(batch);
+            batch.end();
         } else {
             Gdx.gl.glClear(GL32.GL_COLOR_BUFFER_BIT);
             Gdx.gl.glClearColor(0f, 0f, 0f, 1f); // Màu đen

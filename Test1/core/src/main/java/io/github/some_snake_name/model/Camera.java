@@ -13,7 +13,10 @@ public class Camera {
     public Camera(Snake snake, float worldWidth, float worldHeight) {
         this.snake = snake;
         camera = new OrthographicCamera();
-        viewport = new FitViewport(worldWidth, worldHeight, camera); // Sử dụng kích thước bản đồ
+        viewport = new FitViewport(worldWidth, worldHeight, camera);
+
+        camera.zoom = 1.5f; // Kích thước camera
+        // Sử dụng kích thước bản đồ
         camera.update();
     }
 

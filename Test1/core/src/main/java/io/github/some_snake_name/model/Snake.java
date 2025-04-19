@@ -22,16 +22,18 @@ public class Snake {
     private Food food;
     private static double TimeEnd;
     private static boolean isGameOver = false;
+    private ScoreBoard scoreBoard;
 
     public  Snake(){}
 
-    public Snake(TiledMap map, TiledMapTileLayer layer,Wall wall, Food food, int startX, int startY) {
+    public Snake(TiledMap map, TiledMapTileLayer layer,Wall wall, Food food, ScoreBoard scoreBoard, int startX, int startY) {
         this.map = map;
         this.layer = layer;
         this.posX = startX;
         this.posY = startY;
         this.wall = wall;
         this.food = food;
+        this.scoreBoard = scoreBoard;
 
         // Thêm phần thân ban đầu
         for (int i = 1; i <= 3; i++) { // Ban đầu rắn có 3 đốt
@@ -79,10 +81,14 @@ public class Snake {
 
         if (food.IsFood(posX, posY)) {
 
+            Score.inCrease(1);
+            scoreBoard.AddScore();
+
             SoundManager.playEat();
 
             food.HasBeenEaten(posX, posY);
             grow();
+
         }
 
         // Cập nhật vị trí mới trên bản đồ

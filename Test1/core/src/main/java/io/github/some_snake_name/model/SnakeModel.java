@@ -15,6 +15,7 @@ public class SnakeModel {
     private Map map;
     private Wall wall;
     private Background background;
+    private ScoreBoard scoreBoard;
 
     public SnakeModel(){
         profile=new Profile();
@@ -26,7 +27,8 @@ public class SnakeModel {
         wall = new Wall(map.getMap());
         food = new Food(map.getMap(), wall, background);
         snake = new Snake(map.getMap(),
-            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"), wall, food,5, 5);        camera = new Camera(this.snake, map.getWorldWidth(), map.getWorldHeight());
+            (com.badlogic.gdx.maps.tiled.TiledMapTileLayer) map.getMap().getLayers().get("Snake and food"), wall, food, scoreBoard, 5, 5);
+        camera = new Camera(this.snake, map.getWorldWidth(), map.getWorldHeight());
         wall = new Wall(map.getMap());
     }
 

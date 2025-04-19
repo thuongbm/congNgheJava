@@ -12,7 +12,6 @@ public class Food {
     private Background background;
     private int posFoodX;
     private int posFoodY;
-    private int CountEaten = 0;
 
     public Food (TiledMap map, Wall wall, Background background) {
         this.map = map;
@@ -47,13 +46,10 @@ public class Food {
 
     public boolean IsFood(int x, int y) {
         if (x == posFoodX && y == posFoodY) {
-            CountEaten++;
-
-            System.out.println("Food eaten: " + CountEaten);
-
             return true;
         }
-        else return false;
+
+        return false;
     }
 
     public void HasBeenEaten(int x, int y) {
@@ -64,5 +60,7 @@ public class Food {
             foodSpawned = false;
         }
     }
+
+
 
 }
