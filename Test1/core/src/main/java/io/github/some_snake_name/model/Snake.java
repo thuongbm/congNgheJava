@@ -21,7 +21,8 @@ public class Snake {
     private Wall wall;
     private Food food;
     private static double TimeEnd;
-    private static boolean isGameOver = false;
+    private  boolean isGameOver ;
+    private int score;
 
     public  Snake(){}
 
@@ -32,6 +33,8 @@ public class Snake {
         this.posY = startY;
         this.wall = wall;
         this.food = food;
+        this.isGameOver = false;
+        score =0;
 
         // Thêm phần thân ban đầu
         for (int i = 1; i <= 3; i++) { // Ban đầu rắn có 3 đốt
@@ -67,27 +70,35 @@ public class Snake {
 
         food.SpawnRandomFood();
 
-        if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
-            isGameOver = true;
-            TimeEnd = System.currentTimeMillis();
-
-            Time time = new Time();
-            time.TimePeriod();
-
-            System.exit(0);
-        }
-
-        if (food.IsFood(posX, posY)) {
-
-            SoundManager.playEat();
-
-            food.HasBeenEaten(posX, posY);
-            grow();
-        }
+        checkcollision();
 
         // Cập nhật vị trí mới trên bản đồ
         updatePosition();
 
+
+    }
+
+    public void checkcollision(){
+        if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
+            isGameOver = true;
+            System.out.println("isGameover: " + isGameOver);
+
+
+//            TimeEnd = System.currentTimeMillis();
+//
+//            Time time = new Time();
+//            time.TimePeriod();
+
+//            System.exit(0);
+        }
+
+        if (food.IsFood(posX, posY)) {
+            SoundManager.playEat();
+            food.HasBeenEaten(posX, posY);
+            grow();
+
+            score+=1;
+        }
 
     }
 
@@ -131,6 +142,7 @@ public class Snake {
         }
     }
 
+    //collision body
     public Boolean isBody(int x, int y) {
         for (int[] part : snakeBody) {
             if (part[0] == x && part[1] == y) {
@@ -183,8 +195,12 @@ public class Snake {
     public static double getTimeEnd() {
         return TimeEnd;
     }
-
-    public static boolean IsGameOver() {
-       return isGameOver;
+    public void setGameOver(boolean exam){
+        isGameOver = exam;
     }
+    public  boolean isGameOver() {
+        return isGameOver;
+    }
+    public int getScore(){return score;}
+
 }
