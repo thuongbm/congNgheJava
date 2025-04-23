@@ -1,8 +1,11 @@
-package io.github.some_snake_name.controller.manage;
+package io.github.some_snake_name.model;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import io.github.some_snake_name.controller.manage.GameplayController;
+import io.github.some_snake_name.controller.manage.MenuController;
+import io.github.some_snake_name.controller.manage.ProfileController;
 import io.github.some_snake_name.model.base.IModel;
 import io.github.some_snake_name.model.base.WorldModel;
 

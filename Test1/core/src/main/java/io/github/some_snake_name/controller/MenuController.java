@@ -3,7 +3,7 @@ package io.github.some_snake_name.controller;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import io.github.some_snake_name.model.data.Profile;
+import io.github.some_snake_name.model.Profile;
 import io.github.some_snake_name.model.SnakeModel;
 import io.github.some_snake_name.view.Screen;
 

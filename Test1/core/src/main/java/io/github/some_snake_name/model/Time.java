@@ -1,6 +1,5 @@
-package io.github.some_snake_name.model.data;
+package io.github.some_snake_name.model;
 
-import io.github.some_snake_name.model.entities.Snake;
 import io.github.some_snake_name.view.Screen;
 
 public class Time {

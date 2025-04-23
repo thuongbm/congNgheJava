@@ -3,6 +3,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import io.github.some_snake_name.controller.base.IControllerGame;
+import io.github.some_snake_name.model.MainController;
 import io.github.some_snake_name.view.base.IViewGameplay;
 import io.github.some_snake_name.view.screen.GameoverScreen;
 import io.github.some_snake_name.view.screen.GamplayScreen;

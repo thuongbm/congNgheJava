@@ -1,8 +1,7 @@
-package io.github.some_snake_name.model.entities;
+package io.github.some_snake_name.model;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import io.github.some_snake_name.model.data.SoundManager;
 
 import java.util.ArrayList;
 import java.util.List;

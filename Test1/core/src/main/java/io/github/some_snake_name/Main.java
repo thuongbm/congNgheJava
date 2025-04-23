@@ -1,14 +1,9 @@
 package io.github.some_snake_name;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.utils.ScreenUtils;
-import io.github.some_snake_name.controller.MenuController;
-import io.github.some_snake_name.controller.manage.MainController;
+import io.github.some_snake_name.model.MainController;
 
 public class Main extends ApplicationAdapter {
 

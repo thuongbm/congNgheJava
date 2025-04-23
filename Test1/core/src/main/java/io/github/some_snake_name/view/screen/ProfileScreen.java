@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import io.github.some_snake_name.controller.manage.ProfileController;
-import io.github.some_snake_name.model.data.Profile;
+import io.github.some_snake_name.model.Profile;
 import io.github.some_snake_name.model.base.IModel;
 import io.github.some_snake_name.view.base.IViewProfile;
 

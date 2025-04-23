@@ -1,4 +1,4 @@
-package io.github.some_snake_name.model.data;
+package io.github.some_snake_name.model;
 
 public class Profile {
     private String userName;

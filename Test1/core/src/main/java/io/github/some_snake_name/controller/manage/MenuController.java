@@ -4,12 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import io.github.some_snake_name.controller.base.IControllerMenu;
+import io.github.some_snake_name.model.MainController;
 import io.github.some_snake_name.view.base.IViewMenu;
 import io.github.some_snake_name.view.screen.MenuScreen;
 
 public class MenuController implements IControllerMenu {
     private IViewMenu view;
-    private MainController  mainController;
+    private MainController mainController;
     public MenuController(MainController main) {
         this.mainController = main;
     }

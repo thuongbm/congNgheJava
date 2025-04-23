@@ -2,7 +2,7 @@ package io.github.some_snake_name;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import io.github.some_snake_name.model.entities.Wall;
+import io.github.some_snake_name.model.Wall;
 
 import java.util.ArrayList;
 import java.util.List;
