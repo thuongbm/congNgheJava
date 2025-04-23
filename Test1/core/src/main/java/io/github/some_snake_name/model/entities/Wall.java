@@ -1,11 +1,10 @@
-package io.github.some_snake_name.model;
+package io.github.some_snake_name.model.entities;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Wall {
     private TiledMapTileLayer wallLayer;

@@ -1,10 +1,7 @@
-package io.github.some_snake_name.model;
+package io.github.some_snake_name.model.data;
 
-import io.github.some_snake_name.controller.MenuController;
+import io.github.some_snake_name.model.entities.Snake;
 import io.github.some_snake_name.view.Screen;
-
-import javax.print.attribute.standard.MediaName;
-import java.awt.event.InputEvent;
 
 public class Time {
     private double startTime;

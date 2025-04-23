@@ -2,8 +2,9 @@ package io.github.some_snake_name.model;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.utils.ScreenUtils;
+import io.github.some_snake_name.model.data.Profile;
+import io.github.some_snake_name.model.data.SoundManager;
+import io.github.some_snake_name.model.entities.*;
 
 public class SnakeModel {
     private Snake snake;

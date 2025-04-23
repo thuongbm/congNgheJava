@@ -1,6 +1,7 @@
 package io.github.some_snake_name.view.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -21,7 +22,7 @@ public class GamplayScreen implements IViewGameplay {
     private GameplayController gameplayController;
     private WorldModel model;
     private Label scoreLabel;
-    private TextButton pausebutton;
+    //private TextButton pausebutton;
 
     public GamplayScreen (GameplayController controller){
         this.gameplayController=controller;
@@ -39,6 +40,7 @@ public class GamplayScreen implements IViewGameplay {
             model.getCamera().getCamera()
         ));
 
+        //update kích cỡ screen
         model.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()); // Cập nhật camera
 
 
@@ -53,7 +55,7 @@ public class GamplayScreen implements IViewGameplay {
 
         // 4) Khởi tạo UI: Score + Pause
         scoreLabel = new Label("", SKIN);
-        pausebutton = new TextButton("Pause", SKIN);
+        //pausebutton = new TextButton("Pause", SKIN);
 
         // 5) Dùng 1 Table duy nhất để căn HUD
         Table root = new Table();
@@ -61,29 +63,32 @@ public class GamplayScreen implements IViewGameplay {
         root.bottom().pad(10);             // đặt hàng HUD ở đáy
         // thêm 2 ô: Score bên trái, Pause bên phải
         root.add(scoreLabel).expandX().left();
-        root.add(pausebutton).expandX().right();
-        pausebutton.setSize(300,100);
-        pausebutton.addListener(gameplayController.getpausegame());
+        //root.add(pausebutton).expandX().right();
+        //pausebutton.setSize(300,100);
+        //.addListener(gameplayController.getpausegame());
         // 6) Add table vào hudStage
         hubstage.addActor(root);
 
     }
-
     @Override
-    public void updateData(IModel iModel) {
-        this.model = iModel.getWorldModel();
+    public boolean getinputKey() {
+        return (Gdx.input.isKeyJustPressed(Input.Keys.SPACE));
     }
 
+
     @Override
-    public void pause() {
-        if(!model.getSnake().isGameOver()){
-            if(!gameplayController.getispause())
-                model.update(Gdx.graphics.getDeltaTime());
-        }
-        else{
-            gameplayController.MainController().switchToGame();
-        }
+    public void updateData() {
+        model.update(Gdx.graphics.getDeltaTime());
     }
+
+
+//    @Override
+//    public void pause() {
+//        if(!model.getSnake().isGameOver())
+//            if(!gameplayController.getispause())
+//               model.update(Gdx.graphics.getDeltaTime());
+//        else gameplayController.MainController().switchToGame();
+//    }
 
     @Override
     public void render( ) {
@@ -92,9 +97,6 @@ public class GamplayScreen implements IViewGameplay {
         model.getMap().getRenderer().setView(model.getCamera().getCamera());
         // vẽ bản đồ
         model.getMap().getRenderer().render();
-
-        //caapj nhật logic game
-        pause();
 
         scoreLabel.setText("Score: " + model.getSnake().getScore());
         gamestage.act(Gdx.graphics.getDeltaTime());
@@ -105,7 +107,6 @@ public class GamplayScreen implements IViewGameplay {
 
     @Override
     public void resize(int width, int height) {
-
         this.gamestage.getViewport().update(width,height,true);
         model.resize(width, height); // Cập nhật camera
         hubstage.getViewport().update(width,height,true);

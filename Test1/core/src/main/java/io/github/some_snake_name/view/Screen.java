@@ -12,8 +12,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import io.github.some_snake_name.controller.MenuController;
 import io.github.some_snake_name.model.*;
-
-import static com.badlogic.gdx.Gdx.gl;
+import io.github.some_snake_name.model.data.Profile;
+import io.github.some_snake_name.model.data.SoundManager;
 
 public class Screen {
     private MenuPanel menuPanel;

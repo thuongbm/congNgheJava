@@ -1,13 +1,12 @@
-package io.github.some_snake_name.model;
+package io.github.some_snake_name.model.entities;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class Camera {
     private OrthographicCamera camera;
     private FitViewport viewport;
-    private io.github.some_snake_name.model.Snake snake;
+    private Snake snake;
     private final float SMOOTHING_FACTOR = 5f; // Giảm độ nhạy của camera
 
     public Camera(Snake snake, float worldWidth, float worldHeight) {

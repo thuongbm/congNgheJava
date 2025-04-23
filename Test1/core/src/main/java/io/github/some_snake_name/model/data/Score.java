@@ -1,4 +1,4 @@
-package io.github.some_snake_name.model;
+package io.github.some_snake_name.model.data;
 
 public class Score {
     private int total;
@@ -15,6 +15,9 @@ public class Score {
         return total;
     }
 
+    public static void main(String[] args) {
+
+    }
 
 
 }

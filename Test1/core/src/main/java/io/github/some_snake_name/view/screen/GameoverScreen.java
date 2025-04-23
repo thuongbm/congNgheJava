@@ -50,13 +50,14 @@ public class GameoverScreen implements IViewGameplay {
     }
 
     @Override
-    public void updateData(IModel iModel) {
+    public void updateData() {
     }
 
     @Override
-    public void pause() {
-
+    public boolean getinputKey() {
+        return cancelbutton.isChecked();
     }
+
 
     @Override
     public void render() {

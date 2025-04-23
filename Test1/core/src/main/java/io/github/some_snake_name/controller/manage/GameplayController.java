@@ -8,7 +8,7 @@ import io.github.some_snake_name.view.screen.GameoverScreen;
 import io.github.some_snake_name.view.screen.GamplayScreen;
 
 public class GameplayController implements IControllerGame {
-    private IViewGameplay viewGameplay;
+    private IViewGameplay view;
     private MainController mainController;
     private boolean ispause= false;
 
@@ -21,33 +21,42 @@ public class GameplayController implements IControllerGame {
     @Override
     public void create() {
         if(mainController.getImodel().getWorldModel().getSnake().isGameOver())
-            viewGameplay = new GameoverScreen(this);
+            view = new GameoverScreen(this);
         else
         {
             mainController.createmodel();
-            viewGameplay = new GamplayScreen(this);
+            view = new GamplayScreen(this);
         }
-        viewGameplay.create(mainController.getImodel());
+        view.create(mainController.getImodel());
     }
 
     @Override
     public void start() {
-        viewGameplay.render();
+        getiput();
+        if(!ispause ) update();
+        view.render();
+    }
+
+    public void getiput() {
+        if (view.getinputKey()) pause();
     }
 
     @Override
     public void update() {
-
+            if(mainController.getImodel().getWorldModel().getSnake().isGameOver() &&!(view instanceof GameoverScreen)){
+                mainController.switchToGame();
+            }
+            view.updateData();
     }
 
     @Override
     public void close() {
-        viewGameplay.dispose();
+        view.dispose();
     }
 
     @Override
     public void resize(int width, int height) {
-        viewGameplay.resize(width, height);
+        view.resize(width, height);
     }
 
     @Override
@@ -88,6 +97,6 @@ public class GameplayController implements IControllerGame {
             }
         };
     }
-    public boolean getispause(){return  ispause;}
+//    public boolean getispause(){return  ispause;}
     public MainController MainController(){return mainController;}
 }

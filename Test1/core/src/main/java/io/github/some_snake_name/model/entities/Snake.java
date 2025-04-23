@@ -1,11 +1,8 @@
-package io.github.some_snake_name.model;
+package io.github.some_snake_name.model.entities;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import io.github.some_snake_name.controller.MenuController;
-import io.github.some_snake_name.view.Screen;
+import io.github.some_snake_name.model.data.SoundManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +67,7 @@ public class Snake {
 
         food.SpawnRandomFood();
 
+        //kiểm tra va chạm
         checkcollision();
 
         // Cập nhật vị trí mới trên bản đồ
@@ -81,8 +79,7 @@ public class Snake {
     public void checkcollision(){
         if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
             isGameOver = true;
-            System.out.println("isGameover: " + isGameOver);
-
+            System.out.println("---------isGameover: " + isGameOver);
 
 //            TimeEnd = System.currentTimeMillis();
 //
@@ -98,6 +95,7 @@ public class Snake {
             grow();
 
             score+=1;
+            System.out.println("-------Eaten");
         }
 
     }
