@@ -46,10 +46,10 @@ public class ProfileScreen implements IViewProfile {
         Label profileLabel = new Label("PROFILE", SKIN);
         table.add(profileLabel).width(200).height(100).pad(20);
         table.row();
-        Label nameLabel = new Label("User name: " + this.profileData.getUserName(), SKIN);
+        Label nameLabel = new Label("User name: " + this.profileData.getUser_name(), SKIN);
         table.add(nameLabel).width(500).height(100).pad(20);
         table.row();
-        Label scoreLabel = new Label("High score: " + this.profileData.getHighScore(), SKIN);
+        Label scoreLabel = new Label("High score: " + this.profileData.getHighest_score(), SKIN);
         table.add(scoreLabel).width(500).height(100).pad(20);
         table.row();
 

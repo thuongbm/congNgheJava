@@ -3,7 +3,7 @@ package io.github.some_snake_name;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import io.github.some_snake_name.model.MainController;
+import io.github.some_snake_name.controller.manage.MainController;
 
 public class Main extends ApplicationAdapter {
 

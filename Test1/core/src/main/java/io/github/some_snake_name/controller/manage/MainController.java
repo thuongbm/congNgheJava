@@ -1,13 +1,16 @@
-package io.github.some_snake_name.model;
+package io.github.some_snake_name.controller.manage;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import io.github.some_snake_name.controller.manage.GameplayController;
-import io.github.some_snake_name.controller.manage.MenuController;
-import io.github.some_snake_name.controller.manage.ProfileController;
+import io.github.some_snake_name.controller.base.IControllerGame;
+import io.github.some_snake_name.controller.base.IControllerMenu;
+import io.github.some_snake_name.controller.base.IControllerProfile;
 import io.github.some_snake_name.model.base.IModel;
 import io.github.some_snake_name.model.base.WorldModel;
+import io.github.some_snake_name.model.data.DataAccess;
+
+import java.sql.SQLException;
 
 public class MainController extends ApplicationAdapter {
     private enum ScreenState {
@@ -15,13 +18,15 @@ public class MainController extends ApplicationAdapter {
     }
     private IModel imodel;
     private ScreenState currentScreen;
-    private MenuController menuController;
-    private GameplayController gameController;
-    private ProfileController profileController;
+    private IControllerMenu menuController;
+    private IControllerGame gameController;
+    private IControllerProfile profileController;
+    private DataAccess dataAccess;
 
     @Override
     public void create() {
         createmodel();
+        dataAccess = new DataAccess();
         menuController = new MenuController(this);
         gameController = new GameplayController(this);
         profileController = new ProfileController(this);
@@ -70,6 +75,11 @@ public class MainController extends ApplicationAdapter {
 
     @Override
     public void dispose() {
+        try{
+            dataAccess.closeConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         menuController.close();
         gameController.close();
         profileController.close();
@@ -98,4 +108,6 @@ public class MainController extends ApplicationAdapter {
         imodel = new WorldModel();
     }
     public IModel getImodel(){return imodel;}
+    public DataAccess getDataAccess(){return dataAccess;}
+
 }

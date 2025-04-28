@@ -9,6 +9,7 @@ buildscript {
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
   }
   dependencies {
+    classpath 'com.microsoft.sqlserver:mssql-jdbc:12.4.2.jre11'
 
 
   }
@@ -67,6 +68,9 @@ subprojects {
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
     maven { url 'https://jitpack.io' }
+  }
+  dependencies {
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:12.4.2.jre11'
   }
 }
 

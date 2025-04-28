@@ -1,37 +1,48 @@
 package io.github.some_snake_name.model;
 
 public class Profile {
-    private String userName;
-    private int levelMap;
-    private int highScore;
+    private String id;
+    private String user_name;
+    private int highest_score;
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+            "id='" + id + '\'' +
+            ", user_name='" + user_name + '\'' +
+            ", highest_score=" + highest_score +
+            '}';
+    }
+
+    public Profile(String id, String user_name, int highest_score) {
+        this.id = id;
+        this.user_name = user_name;
+        this.highest_score = highest_score;
+    }
 
     public Profile() {
-        this.userName = "Son adu TKvip";
-        this.highScore = 100;
-        this.levelMap = 2;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getId() {
+        return id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public int getLevelMap() {
-        return levelMap;
+    public int getHighest_score() {
+        return highest_score;
     }
 
-    public void setLevelMap(int levelMap) {
-        this.levelMap = levelMap;
+    public void setHighest_score(int highest_score) {
+        this.highest_score = highest_score;
     }
 
-    public int getHighScore() {
-        return highScore;
-    }
-
-    public void setHighScore(int highScore) {
-        this.highScore = highScore;
+    public void setProfile (Profile other){
+        this.id = other.getId();
+        this.user_name = other.getUser_name();
+        this.highest_score = other.getHighest_score();
     }
 }
+

@@ -1,6 +1,5 @@
 package io.github.some_snake_name.model;
 
-import io.github.some_snake_name.view.Screen;
 
 public class Time {
     private double startTime;
@@ -12,14 +11,5 @@ public class Time {
         this.endTime = 0;
     }
 
-    public double TimePeriod() {
-        startTime = Screen.getTimeStart();
-        endTime = Snake.getTimeEnd();
 
-        double timePeriod = (endTime - startTime) / 1000;
-
-        System.out.println("Time period: " + timePeriod + " seconds");
-
-        return timePeriod;
-    }
 }
