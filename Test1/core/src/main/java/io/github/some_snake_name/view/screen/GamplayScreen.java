@@ -82,14 +82,6 @@ public class GamplayScreen implements IViewGameplay {
     }
 
 
-//    @Override
-//    public void pause() {
-//        if(!model.getSnake().isGameOver())
-//            if(!gameplayController.getispause())
-//               model.update(Gdx.graphics.getDeltaTime());
-//        else gameplayController.MainController().switchToGame();
-//    }
-
     @Override
     public void render( ) {
 
@@ -114,7 +106,7 @@ public class GamplayScreen implements IViewGameplay {
 
     @Override
     public void dispose() {
-        this.gamestage.dispose();
-        hubstage.dispose();
+        if(gamestage != null) gamestage.dispose();
+        if(hubstage != null ) hubstage.dispose();
     }
 }

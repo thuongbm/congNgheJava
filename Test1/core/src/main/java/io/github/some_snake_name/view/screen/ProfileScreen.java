@@ -7,12 +7,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import io.github.some_snake_name.controller.manage.ProfileController;
 import io.github.some_snake_name.model.Profile;
 import io.github.some_snake_name.model.base.IModel;
 import io.github.some_snake_name.view.base.IViewProfile;
 
+import static com.badlogic.gdx.utils.Align.center;
 import static io.github.some_snake_name.view.component.Component.BACKGROUND_PROFILE;
 import static io.github.some_snake_name.view.component.Component.SKIN;
 
@@ -44,12 +46,15 @@ public class ProfileScreen implements IViewProfile {
         this.stage.addActor(table);
 
         Label profileLabel = new Label("PROFILE", SKIN);
+        profileLabel.setAlignment(Align.center);
         table.add(profileLabel).width(200).height(100).pad(20);
         table.row();
         Label nameLabel = new Label("User name: " + this.profileData.getUser_name(), SKIN);
+        nameLabel.setAlignment(Align.center);
         table.add(nameLabel).width(500).height(100).pad(20);
         table.row();
         Label scoreLabel = new Label("High score: " + this.profileData.getHighest_score(), SKIN);
+        scoreLabel.setAlignment(Align.center);
         table.add(scoreLabel).width(500).height(100).pad(20);
         table.row();
 
@@ -83,6 +88,6 @@ public class ProfileScreen implements IViewProfile {
 
     @Override
     public void dispose() {
-        stage.dispose();
+        if(stage != null) stage.dispose();
     }
 }

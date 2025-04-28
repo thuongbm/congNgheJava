@@ -76,6 +76,7 @@ public class GameoverScreen implements IViewGameplay {
 
     @Override
     public void dispose() {
+        if(stage != null)
         stage.dispose();
     }
 }
