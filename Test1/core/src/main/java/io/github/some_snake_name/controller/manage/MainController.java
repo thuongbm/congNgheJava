@@ -9,7 +9,9 @@ import io.github.some_snake_name.controller.base.IControllerProfile;
 import io.github.some_snake_name.model.base.IModel;
 import io.github.some_snake_name.model.base.WorldModel;
 import io.github.some_snake_name.model.data.DataAccess;
+import io.github.some_snake_name.model.data.ProfileDA;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class MainController extends ApplicationAdapter {
@@ -26,7 +28,7 @@ public class MainController extends ApplicationAdapter {
     @Override
     public void create() {
         createmodel();
-        dataAccess = new DataAccess();
+        createDA();
         menuController = new MenuController(this);
         gameController = new GameplayController(this);
         profileController = new ProfileController(this);
@@ -106,6 +108,24 @@ public class MainController extends ApplicationAdapter {
 
     public void createmodel(){
         imodel = new WorldModel();
+    }
+    public void createDA(){
+        dataAccess = new DataAccess();
+
+        try{
+            dataAccess.createConnection();
+            //
+            Connection conn = dataAccess.getConnection();
+            //
+            ProfileDA profileDA = new ProfileDA(conn);
+            if(!profileDA.hasAccount()){
+                profileDA.createDefaultAccount();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
     public IModel getImodel(){return imodel;}
     public DataAccess getDataAccess(){return dataAccess;}

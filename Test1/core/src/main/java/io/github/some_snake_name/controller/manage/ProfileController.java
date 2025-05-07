@@ -34,18 +34,13 @@ public class ProfileController implements IControllerProfile {
     @Override
     public void update()  {
         try {
-            mainController.getDataAccess().createConnection();
+
             Connection connection = mainController.getDataAccess().getConnection();
             ProfileDA profileDA = new ProfileDA(connection);
-            if(!profileDA.hasAccount()){
-                profileDA.createDefaultAccount();
-            }
             //
             Profile profile = profileDA.getProfile();
             //
             mainController.getImodel().getWorldModel().getProfile().setProfile(profile);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException();
         } catch (SQLException e) {
             throw new RuntimeException();
         }
