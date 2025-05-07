@@ -90,14 +90,7 @@ public class Snake {
     }
 
 
-    public void subBody(){
-        snakeBody.remove(snakeBody.size()- 1 );
-        if(snakeBody.isEmpty()) {
-            isGameOver = true;
-            return;
-        }
-        score -= 1;
-    }
+
 
     public void collisionFood(){
         if (food.IsFood(posX, posY)) {
@@ -108,40 +101,6 @@ public class Snake {
             score+=1;
             System.out.println("-------Eaten");
         }
-    }
-
-    private void resetPosition() {
-        // Xóa vị trí cũ trên bản đồ
-        clearOldPosition();
-
-        // Đặt vị trí mới cho đầu rắn (ví dụ: vị trí ngẫu nhiên)
-        int newX, newY;
-        do {
-            newX = (int) (Math.random() * layer.getWidth());
-            newY = (int) (Math.random() * layer.getHeight());
-        } while (wall.IsWall(newX, newY) || isBody(newX, newY) || food.IsFood(newX,newY));
-
-        // Cập nhật vị trí đầu
-        posX = newX;
-        posY = newY;
-
-        // Cập nhật thân rắn (di chuyển thân theo đầu)
-        List<int[]> newBody = new ArrayList<>();
-        int currentX = posX;
-        int currentY = posY;
-        for (int[] part : snakeBody) {
-            newBody.add(new int[]{currentX + 1, currentY}); // Đặt thân theo hướng mặc định
-            currentX++;
-        }
-        snakeBody.clear();
-        snakeBody.addAll(newBody);
-
-        // Đặt lại hướng di chuyển (mặc định: sang trái)
-        dirX = -1;
-        dirY = 0;
-
-        // Cập nhật hiển thị
-        updatePosition();
     }
 
     private void clearOldPosition() {
