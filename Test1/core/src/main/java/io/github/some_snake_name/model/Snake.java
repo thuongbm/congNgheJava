@@ -33,7 +33,7 @@ public class Snake {
         score =0;
 
         // Thêm phần thân ban đầu
-        for (int i = 1; i <= 3; i++) { // Ban đầu rắn có 3 đốt
+        for (int i = 1; i <= 1; i++) { // Ban đầu rắn có 1 đốt
             snakeBody.add(new int[]{startX + i, startY});
         }
 
@@ -76,18 +76,30 @@ public class Snake {
     }
 
     public void checkcollision(){
+        collisionException();
+        collisionFood();
+    }
+    public void collisionException(){
         if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
-            isGameOver = true;
+           isGameOver = true;
             System.out.println("---------isGameover: " + isGameOver);
-
-//            TimeEnd = System.currentTimeMillis();
-//
-//            Time time = new Time();
-//            time.TimePeriod();
-
-//            System.exit(0);
+           // subBody();
+           // resetPosition();
         }
 
+    }
+
+
+    public void subBody(){
+        snakeBody.remove(snakeBody.size()- 1 );
+        if(snakeBody.isEmpty()) {
+            isGameOver = true;
+            return;
+        }
+        score -= 1;
+    }
+
+    public void collisionFood(){
         if (food.IsFood(posX, posY)) {
             SoundManager.playEat();
             food.HasBeenEaten(posX, posY);
@@ -96,7 +108,40 @@ public class Snake {
             score+=1;
             System.out.println("-------Eaten");
         }
+    }
 
+    private void resetPosition() {
+        // Xóa vị trí cũ trên bản đồ
+        clearOldPosition();
+
+        // Đặt vị trí mới cho đầu rắn (ví dụ: vị trí ngẫu nhiên)
+        int newX, newY;
+        do {
+            newX = (int) (Math.random() * layer.getWidth());
+            newY = (int) (Math.random() * layer.getHeight());
+        } while (wall.IsWall(newX, newY) || isBody(newX, newY) || food.IsFood(newX,newY));
+
+        // Cập nhật vị trí đầu
+        posX = newX;
+        posY = newY;
+
+        // Cập nhật thân rắn (di chuyển thân theo đầu)
+        List<int[]> newBody = new ArrayList<>();
+        int currentX = posX;
+        int currentY = posY;
+        for (int[] part : snakeBody) {
+            newBody.add(new int[]{currentX + 1, currentY}); // Đặt thân theo hướng mặc định
+            currentX++;
+        }
+        snakeBody.clear();
+        snakeBody.addAll(newBody);
+
+        // Đặt lại hướng di chuyển (mặc định: sang trái)
+        dirX = -1;
+        dirY = 0;
+
+        // Cập nhật hiển thị
+        updatePosition();
     }
 
     private void clearOldPosition() {
