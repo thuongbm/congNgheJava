@@ -17,7 +17,7 @@ public class Snake {
     private Wall wall;
     private Food food;
     private static double TimeEnd;
-    private  boolean isGameOver ;
+    private boolean isGameOver ;
     private int score;
 
     public  Snake(){}
@@ -30,7 +30,7 @@ public class Snake {
         this.wall = wall;
         this.food = food;
         this.isGameOver = false;
-        score =0;
+        score = 0;
 
         // Thêm phần thân ban đầu
         for (int i = 1; i <= 3; i++) { // Ban đầu rắn có 3 đốt
@@ -58,6 +58,7 @@ public class Snake {
         posX += dirX;
         posY += dirY;
 
+
         // Nếu rắn có thân thì di chuyển thân theo đầu rắn
         if (!snakeBody.isEmpty()) {
             int[] lastPart = snakeBody.remove(snakeBody.size() - 1);
@@ -66,17 +67,18 @@ public class Snake {
 
         food.SpawnRandomFood();
 
+//        WrapAround();
+
         //kiểm tra va chạm
         checkcollision();
 
         // Cập nhật vị trí mới trên bản đồ
         updatePosition();
 
-
     }
 
     public void checkcollision(){
-        if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
+        if (wall.IsWall(posX, posY) || isBody(posX, posY) /*|| food.IsFood(posX, posY)*/) {
             isGameOver = true;
             System.out.println("---------isGameover: " + isGameOver);
 
@@ -88,12 +90,23 @@ public class Snake {
 //            System.exit(0);
         }
 
+        if (posX < 0) {
+            posX = layer.getWidth() - 1;
+        } else if (posX >= layer.getWidth()) {
+            posX = 0;
+        }
+        if (posY < 0) {
+            posY = layer.getHeight() - 1;
+        } else if (posY >= layer.getHeight()) {
+            posY = 0;
+        }
+
         if (food.IsFood(posX, posY)) {
             SoundManager.playEat();
             food.HasBeenEaten(posX, posY);
             grow();
 
-            score+=1;
+            score += 1;
             System.out.println("-------Eaten");
         }
 
@@ -154,30 +167,53 @@ public class Snake {
         if (!snakeBody.isEmpty()) {
             int[] lastPart = snakeBody.get(snakeBody.size() - 1);
             snakeBody.add(new int[]{lastPart[0], lastPart[1]});
+//            snakeBody.add(new int[]{lastPart[0], lastPart[1]});
         }
     }
 
-    public void HeadDirection(int dx, int dy) {
-        TiledMapTileLayer.Cell headCell = new TiledMapTileLayer.Cell();
-        TiledMapTileLayer.Cell head1Cell = new TiledMapTileLayer.Cell();
-        TiledMapTileLayer.Cell head2Cell = new TiledMapTileLayer.Cell();
-        TiledMapTileLayer.Cell head3Cell = new TiledMapTileLayer.Cell();
+//    public void HeadDirection(int dx, int dy) {
+//        TiledMapTileLayer.Cell headCell = new TiledMapTileLayer.Cell();
+//        TiledMapTileLayer.Cell head1Cell = new TiledMapTileLayer.Cell();
+//        TiledMapTileLayer.Cell head2Cell = new TiledMapTileLayer.Cell();
+//        TiledMapTileLayer.Cell head3Cell = new TiledMapTileLayer.Cell();
+//
+//        headCell.setTile(map.getTileSets().getTile(1453));// Mã tile của đầu rắn
+//        head1Cell.setTile(map.getTileSets().getTile(1452));// Mã tile của đầu rắn
+//        head2Cell.setTile(map.getTileSets().getTile(1451));// Mã tile của đầu rắn
+//        head3Cell.setTile(map.getTileSets().getTile(1450));// Mã tile của đầu rắn
+//        if (dx == 1 && dy == 0) {
+//            layer.setCell(posX, posY, headCell);
+//        }
+//        else if (dx == -1 && dy == 0) {
+//            layer.setCell(posX, posY, head2Cell);
+//        }
+//        else if (dx == 0 && dy == 1) {
+//            layer.setCell(posX, posY, head1Cell);
+//        }
+//        else if (dx == 0 && dy == -1) {
+//            layer.setCell(posX, posY, head3Cell);
+//        }
+//    }
 
-        headCell.setTile(map.getTileSets().getTile(1453));// Mã tile của đầu rắn
-        head1Cell.setTile(map.getTileSets().getTile(1452));// Mã tile của đầu rắn
-        head2Cell.setTile(map.getTileSets().getTile(1451));// Mã tile của đầu rắn
-        head3Cell.setTile(map.getTileSets().getTile(1450));// Mã tile của đầu rắn
-        if (dx == 1 && dy == 0) {
-            layer.setCell(posX, posY, headCell);
+    public void WrapAround() {
+        if (posX < 0) {
+            posX = layer.getWidth() - 1;
+        } else if (posX >= layer.getWidth()) {
+            posX = 0;
         }
-        else if (dx == -1 && dy == 0) {
-            layer.setCell(posX, posY, head2Cell);
+        if (posY < 0) {
+            posY = layer.getHeight() - 1;
+        } else if (posY >= layer.getHeight()) {
+            posY = 0;
         }
-        else if (dx == 0 && dy == 1) {
-            layer.setCell(posX, posY, head1Cell);
-        }
-        else if (dx == 0 && dy == -1) {
-            layer.setCell(posX, posY, head3Cell);
+
+        if (food.IsFood(posX, posY)) {
+            SoundManager.playEat();
+            food.HasBeenEaten(posX, posY);
+            grow();
+
+            score+=1;
+            System.out.println("-------Eaten");
         }
     }
 

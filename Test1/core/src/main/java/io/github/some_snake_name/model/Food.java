@@ -13,6 +13,9 @@ public class Food {
     private int posFoodX;
     private int posFoodY;
     private int CountEaten = 0;
+    private boolean isGameOver ;
+    private Snake snake;
+
 
     public Food (TiledMap map, Wall wall, Background background) {
         this.map = map;
@@ -30,13 +33,17 @@ public class Food {
         foodLayer.setCell(x, y, foodCell);
     }
 
+    public void setSnake (Snake snake) {
+        this.snake = snake;
+    }
+
     public void SpawnRandomFood() {
         if (!foodSpawned){
             int x, y;
             do {
                 x = MathUtils.random(0, foodLayer.getWidth());
                 y = MathUtils.random(0, foodLayer.getHeight());
-            } while (foodLayer.getCell(x, y) != null || wall.IsWall(x, y) || !background.IsBackground(x, y));
+            } while (foodLayer.getCell(x, y) != null || wall.IsWall(x, y) || !background.IsBackground(x, y) || snake.isBody(x, y));
 
             DisplayFood(x, y);
             posFoodX = x;
@@ -63,6 +70,7 @@ public class Food {
             foodLayer.setCell(x, y, null);
             foodSpawned = false;
         }
+
     }
 
 }

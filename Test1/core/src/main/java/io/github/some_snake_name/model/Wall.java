@@ -25,7 +25,7 @@ public class Wall {
     public void FindWallPositions() {
         for (int x = 0; x < wallLayer.getWidth(); x++) {
             for (int y = 0; y < wallLayer.getHeight(); y++) {
-                if (wallLayer.getCell(x, y) != null) {
+                if (wallLayer.getCell(x, y) != null /*&& wallLayer.getCell(x, y).getTile() != null && wallLayer.getCell(x, y).getTile().getId() == 1434*/) {
                     wallPositions.add(new int[]{x, y});
                 }
             }
