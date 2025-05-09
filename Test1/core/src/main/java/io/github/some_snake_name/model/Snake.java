@@ -58,7 +58,6 @@ public class Snake {
         posX += dirX;
         posY += dirY;
 
-
         // Nếu rắn có thân thì di chuyển thân theo đầu rắn
         if (!snakeBody.isEmpty()) {
             int[] lastPart = snakeBody.remove(snakeBody.size() - 1);
@@ -75,10 +74,11 @@ public class Snake {
         // Cập nhật vị trí mới trên bản đồ
         updatePosition();
 
+
     }
 
     public void checkcollision(){
-        if (wall.IsWall(posX, posY) || isBody(posX, posY) /*|| food.IsFood(posX, posY)*/) {
+        if (wall.IsWall(posX, posY) || isBody(posX, posY)) {
             isGameOver = true;
             System.out.println("---------isGameover: " + isGameOver);
 
@@ -88,6 +88,8 @@ public class Snake {
 //            time.TimePeriod();
 
 //            System.exit(0);
+//             subBody();
+//             resetPosition();
         }
 
         if (posX < 0) {
@@ -100,6 +102,7 @@ public class Snake {
         } else if (posY >= layer.getHeight()) {
             posY = 0;
         }
+
 
         if (food.IsFood(posX, posY)) {
             SoundManager.playEat();
@@ -167,7 +170,6 @@ public class Snake {
         if (!snakeBody.isEmpty()) {
             int[] lastPart = snakeBody.get(snakeBody.size() - 1);
             snakeBody.add(new int[]{lastPart[0], lastPart[1]});
-//            snakeBody.add(new int[]{lastPart[0], lastPart[1]});
         }
     }
 
@@ -216,6 +218,51 @@ public class Snake {
             System.out.println("-------Eaten");
         }
     }
+
+
+    public void subBody(){
+        snakeBody.remove(snakeBody.size()- 1 );
+        if(snakeBody.isEmpty()) {
+            isGameOver = true;
+            return;
+        }
+        score -= 1;
+    }
+
+    private void resetPosition() {
+        // Xóa vị trí cũ trên bản đồ
+        clearOldPosition();
+
+        // Đặt vị trí mới cho đầu rắn (ví dụ: vị trí ngẫu nhiên)
+        int newX, newY;
+        do {
+            newX = (int) (Math.random() * layer.getWidth());
+            newY = (int) (Math.random() * layer.getHeight());
+        } while (wall.IsWall(newX, newY) || isBody(newX, newY) || food.IsFood(newX,newY));
+
+        // Cập nhật vị trí đầu
+        posX = newX;
+        posY = newY;
+
+        // Cập nhật thân rắn (di chuyển thân theo đầu)
+        List<int[]> newBody = new ArrayList<>();
+        int currentX = posX;
+        int currentY = posY;
+        for (int[] part : snakeBody) {
+            newBody.add(new int[]{currentX + 1, currentY}); // Đặt thân theo hướng mặc định
+            currentX++;
+        }
+        snakeBody.clear();
+        snakeBody.addAll(newBody);
+
+        // Đặt lại hướng di chuyển (mặc định: sang trái)
+        dirX = -1;
+        dirY = 0;
+
+        // Cập nhật hiển thị
+        updatePosition();
+    }
+
 
     public int getPosX() {
         return posX;
